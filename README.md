@@ -4,6 +4,11 @@ Team: Marcus Ortiz, Jason Stewart, Ben Voogd, Alan Yang
 
 ## initial setup
 
+clone the repo:
+
+    git clone git@github.com:tooltime/tooltime.git
+    cd tooltime
+
 install the dependencies:
 
     bundle install
