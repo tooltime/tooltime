@@ -6,6 +6,15 @@
   text-align: center;
 }
 
+.welcome a {
+  color: #333;
+}
+
+.welcome a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
 .welcome h1 {
   font-size: 48px;
 }
