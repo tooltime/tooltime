@@ -1,8 +1,15 @@
 # CPE-366: Team ToolTime
-Marcus Ortiz
 
-Jason Stewart
+Team: Marcus Ortiz, Jason Stewart, Ben Voogd, Alan Yang
 
-Ben Voogd
+## initial setup
 
-Alan Yang
+install the dependencies:
+
+    bundle install
+    
+## local development
+
+start the server
+
+    rails server thin
