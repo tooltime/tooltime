@@ -1,7 +1,45 @@
 <div class="content browse-comparisons">
-  <div class="row">
+  <div class="row banner">
     <div class="span6">
       <h1>Browse Comparisons <small>by species</small></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <form class="form-horizontal">
+        <fieldset>
+          <select class="span2" id="species-select">
+            <option>cow</option>
+            <option>cat</option>
+            <option>dog</option>
+          </select>
+          <button type="submit" class="btn">Go</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>from state</th>
+            <th>to state</th>
+            <th>species</th>
+            <th>cell type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">1</a></td>
+            <td>undifferentiated</td>
+            <td>differentiated</td>
+            <td>cow</td>
+            <td>mammary</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
