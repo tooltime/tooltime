@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  beg: 1
+  len: 1
+  sns: MyString
+  model: MyString
+  sequence: MyString
+  la: 1.5
+  la_slash: 1.5
+  lq: 1.5
+  ld: 1.5
+  ppv: 1.5
+
+two:
+  beg: 1
+  len: 1
+  sns: MyString
+  model: MyString
+  sequence: MyString
+  la: 1.5
+  la_slash: 1.5
+  lq: 1.5
+  ld: 1.5
+  ppv: 1.5
