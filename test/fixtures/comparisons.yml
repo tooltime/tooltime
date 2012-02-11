@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  from_state: MyString
+  to_state: MyString
+  species: MyString
+  cell_type: MyString
+
+two:
+  from_state: MyString
+  to_state: MyString
+  species: MyString
+  cell_type: MyString
