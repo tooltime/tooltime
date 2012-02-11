@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211225915) do
+ActiveRecord::Schema.define(:version => 20120211234643) do
 
   create_table "comparisons", :force => true do |t|
-    t.string   "from_state"
-    t.string   "to_state"
+    t.string   "state"
     t.string   "species"
     t.string   "cell_type"
     t.datetime "created_at", :null => false
