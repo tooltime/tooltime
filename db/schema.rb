@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211234643) do
+ActiveRecord::Schema.define(:version => 20120212014235) do
 
   create_table "comparisons", :force => true do |t|
     t.string   "state"
@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(:version => 20120211234643) do
   create_table "experiments", :force => true do |t|
     t.string   "label"
     t.string   "tess"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "comparison_id"
   end
 
   create_table "genes", :force => true do |t|
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20120211234643) do
     t.string   "ambiguous"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "experiment_id"
   end
 
   create_table "pages", :force => true do |t|
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20120211234643) do
     t.string   "sequence"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "gene_id"
   end
 
   create_table "regulatory_elements", :force => true do |t|
@@ -99,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20120211234643) do
     t.float    "ppv"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "gene_id"
   end
 
   create_table "regulatory_elements_pages", :force => true do |t|
