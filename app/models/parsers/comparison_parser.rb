@@ -8,8 +8,13 @@ module Parsers
       map[key]
     end
     
-    def import!
-      Comparison.create(:state => get_val(:state), :species => get_val(:species))
+    def import
+      c = Comparison.new(:state => get_val(:state), :species => get_val(:species))
+      if c.save
+        c
+      else
+        Comparison.where(:state => get_val(:state), :species => get_val(:species)).first
+      end
     end
   end
 end
