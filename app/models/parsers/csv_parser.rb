@@ -7,7 +7,13 @@ module Parsers
     end
     
     def get_val(key)
-      @data[map(key)].last
+      val = nil
+      if key.is_a? Symbol
+        val = @data[map(key)].last
+      elsif key.is_a? Integer
+        val = @data[key].last
+      end
+      val.strip if val.is_a? String
     end
   end
 end
