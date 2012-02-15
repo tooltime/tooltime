@@ -47,7 +47,7 @@
     <h3>Upload Data</h3>
   </div>
   <div class="modal-body">
-    <%= form_tag('/data/upload', :multipart => true, :class => 'form-horizontal') do %>
+    <%= form_tag(data_upload_path, :multipart => true, :class => 'form-horizontal') do %>
       <fieldset>
         <legend>in batch</legend>
         <div class="control-group">
