@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212014235) do
+ActiveRecord::Schema.define(:version => 20120215011121) do
 
   create_table "comparisons", :force => true do |t|
     t.string   "state"
@@ -82,6 +82,11 @@ ActiveRecord::Schema.define(:version => 20120212014235) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "pages_regulatory_elements", :force => true do |t|
+    t.integer "regulatory_element_id"
+    t.integer "page_id"
+  end
+
   create_table "promoters", :force => true do |t|
     t.string   "sequence"
     t.datetime "created_at", :null => false
@@ -103,11 +108,6 @@ ActiveRecord::Schema.define(:version => 20120212014235) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "gene_id"
-  end
-
-  create_table "regulatory_elements_pages", :force => true do |t|
-    t.integer "regulatory_element_id"
-    t.integer "page_id"
   end
 
   create_table "regulatory_elements_transcription_factors", :force => true do |t|
