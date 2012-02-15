@@ -47,7 +47,17 @@
     <h3>Upload Data</h3>
   </div>
   <div class="modal-body">
-    
+    <%= form_tag('/data/upload', :multipart => true, :class => 'form-horizontal') do %>
+      <fieldset>
+        <legend>in batch</legend>
+        <div class="control-group">
+          <%= label_tag :data, 'data (zipped folder)', :class => 'control-label' %>
+          <div class="controls">
+            <%= file_field_tag 'data' %>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
   </div>
   <div class="modal-footer">
     <a href="#" class="btn btn-primary">Upload</a>
