@@ -1,5 +1,6 @@
 class DataController < ApplicationController
   def upload
-    puts 'posted to upload'
+    file = params[:data]
+    @filename = file.original_filename
   end
 end
