@@ -28,6 +28,7 @@ class Uploader
       triplet.each do |f|
         Rails.logger.debug "[UPLOADER]\t#{File.split(f).last}"
       end
+      Importer.new(*triplet).import!
       Rails.logger.debug "[UPLOADER] ...done"
     end
   end
