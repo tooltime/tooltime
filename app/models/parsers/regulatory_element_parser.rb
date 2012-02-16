@@ -17,6 +17,7 @@ module Parsers
     end
 
     def import
+      reg_elements = []
       @data.each do |row|
         next if row === @data[0]
         r = RegulatoryElement.create(
@@ -55,7 +56,10 @@ module Parsers
         end
         
         r.save!
+        reg_elements << r
       end
+      
+      reg_elements
     end
       
     private
