@@ -5,7 +5,8 @@ class DataController < ApplicationController
     files = params[:data]
     uploader = Uploader.new
     copy_uploaded_files uploader, files
-    Delayed::Job.enqueue uploader
+    job = Delayed::Job.enqueue(uploader)
+    @job_id = job.id
   end
   
   private

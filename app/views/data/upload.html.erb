@@ -5,4 +5,7 @@
       <p>Please be patient, processing the data may take several minutes.</p>
     </div>
   </div>
+  <%= form_tag(:style => 'display: none;') do %>
+    <%= hidden_field_tag "job_id", @job_id, { :id => "job-id" } %>
+  <% end %>
 </div>
