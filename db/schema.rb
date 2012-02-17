@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215190618) do
+ActiveRecord::Schema.define(:version => 20120217074055) do
 
   create_table "comparisons", :force => true do |t|
     t.string   "state"
@@ -104,9 +104,9 @@ ActiveRecord::Schema.define(:version => 20120215190618) do
   end
 
   create_table "promoters", :force => true do |t|
-    t.string   "sequence"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "sequence",   :limit => 255
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "gene_id"
   end
 

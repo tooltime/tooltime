@@ -4,3 +4,5 @@
 $ ->
   $('#bulk-uploader-modal .btn-primary').click ->
     $('#bulk-uploader-modal form').submit()
+  
+  $('.processing-progress').spin()

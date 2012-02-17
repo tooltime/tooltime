@@ -20,7 +20,7 @@ module Parsers
       reg_elements = []
       @data.each do |row|
         next if row === @data[0]
-        r = RegulatoryElement.create(
+        r = RegulatoryElement.new(
           :beg      => row[map(:beg)],
           :len      => row[map(:len)],
           :sns      => row[map(:sns)],
@@ -55,7 +55,7 @@ module Parsers
           r.model = mval.split('()').map(&:strip).join('/')
         end
         
-        r.save!
+        #r.save!
         reg_elements << r
       end
       

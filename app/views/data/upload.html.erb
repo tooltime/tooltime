@@ -1,10 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="span12">
+<div class="content data-upload">
+  <div class="row banner">
+    <div class="span6">
       <h1>Your data is now being processed.</h1>
-      <p>Please be patient, processing the data may take several minutes.</p>
+    </div>
+    <div class="span1 processing-progress"></div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <div class="alert alert-info">
+        <strong>Please be patient,</strong> processing the data may take several minutes.
+      </div>
     </div>
   </div>
+  <!--<div class="row processing-progress"></div>-->
   <%= form_tag(:style => 'display: none;') do %>
     <%= hidden_field_tag "job_id", @job_id, { :id => "job-id" } %>
   <% end %>

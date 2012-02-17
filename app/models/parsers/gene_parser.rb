@@ -45,12 +45,18 @@ module Parsers
     end
     
     def import
-      attrs = Map
+      attrs = Hash[Map] # fixed a major bug by creating a copy of the hash
       attrs.each {|k,v| attrs[k] = get_val(k)}
       # special parsing for distribution nums, which are all part of one field
       dists = get_val(39).split(',').map(&:to_f)
       attrs = attrs.merge({:a_distribution => dists[0], :c_distribution => dists[1], :g_distribution => dists[2], :t_distribution => dists[3]})
-      g = Gene.create(attrs)
+      
+      g = Gene.new(attrs)
+      if g.save
+        g
+      else
+        Gene.where(:name => g.name, :species => g.species).first
+      end
     end
   end
 end
