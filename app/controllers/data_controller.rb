@@ -9,6 +9,19 @@ class DataController < ApplicationController
     @job_id = job.id
   end
   
+  def status
+    resp = {:status => 'working'}
+    job = Delayed::Job.find_by_id(params[:job_id])
+    if job.nil?
+      resp[:status] = 'done'
+    else
+      unless job.last_error.nil?
+        resp[:status] = 'error'
+      end
+    end
+    render :json => resp
+  end
+  
   private
   
   def copy_uploaded_files(uploader, files)
