@@ -9,9 +9,16 @@ $ ->
         clearInterval window.statusInterval
         window.statusInterval = null
         $('.processing-progress').data('spinner').stop()
-        $('.processing-status').text('Your data is ready.')
+        $('.processing-status').text 'Your data is ready.'
         $('.processing-alert .alert').remove()
         $('.processing-alert').append '<div class="alert alert-success"><strong>Your data\'s ready!</strong> Thanks for waiting so patiently.</div>'
+      else if data.status == 'error'
+        clearInterval window.statusInterval
+        window.statusInterval = null
+        $('.processing-progress').data('spinner').stop()
+        $('.processing-status').text 'An error occured.'
+        $('.processing-alert .alert').remove()
+        $('.processing-alert').append '<div class="alert alert-error"><strong>Whoops!</strong> Looks like something broke...</div>'
   
   # submits the uploader form when the upload button is pressed
   $('#bulk-uploader-modal .btn-primary').click ->
