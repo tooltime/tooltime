@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 gem 'thin'
 
+gem 'delayed_job_active_record'
+
 group :development do
   gem 'sqlite3'
 end

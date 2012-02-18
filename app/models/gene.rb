@@ -3,5 +3,5 @@ class Gene < ActiveRecord::Base
   has_one :promoter
   has_many :regulatory_elements
   
-  validates_uniqueness_of :name, :scope => [:species, :experiment_id]
+  validates_uniqueness_of :name, :scope => :species
 end

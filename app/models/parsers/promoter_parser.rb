@@ -8,7 +8,8 @@ module Parsers
     end
     
     def import
-      c = Promoter.create(:sequence => get_val(:sequence))
+      p = Promoter.new(:sequence => get_val(:sequence))
+      p.save ? p : Promoter.where(:sequence => p.sequence).first
     end
   end
 end
