@@ -3,7 +3,6 @@
     <div class="span6">
       <h1 class="processing-status">Your data is now being processed.</h1>
     </div>
-    <div class="span1 processing-progress"></div>
   </div>
   <div class="row">
     <div class="span6 processing-alert">
@@ -12,8 +11,8 @@
       </div>
     </div>
   </div>
-  <!--<div class="row processing-progress"></div>-->
   <%= form_tag(:style => 'display: none;') do %>
     <%= hidden_field_tag "job_id", @job_id, { :id => "job-id" } %>
   <% end %>
 </div>
+<div class="processing-progress"></div>

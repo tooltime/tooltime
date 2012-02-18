@@ -27,7 +27,7 @@ $ ->
   # only execute this code for the /data/upload view
   if $('.processing-progress').length > 0
     # starts the progress indicator
-    $('.processing-progress').spin()
+    $('.processing-progress').spin {lines: 12, length: 16, width: 6, radius: 18, trail: 60, speed: 0.8}
   
     # checks the status of the data processing every 5 seconds
     window.statusInterval = setInterval(checkDataStatus, 5000)
