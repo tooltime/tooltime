@@ -1,0 +1,14 @@
+// Place all the styles related to the Data controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.processing-progress {
+  color: #000;
+  position: absolute;
+  height: 400px;
+  left: 50%;
+  margin: -200px 0 0 -200px;
+  text-align: center;
+  top: 50%;
+  width: 400px;
+  z-index: 100;
+}

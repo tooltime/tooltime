@@ -15,6 +15,10 @@ install the dependencies:
     
 ## local development
 
+start delayed_job
+
+    rake jobs:work
+
 start the server
 
     rails server thin
