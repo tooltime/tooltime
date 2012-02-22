@@ -1,0 +1,22 @@
+<h1>Transcription Factors</h1>
+
+<div class="row">
+  <div class="span12">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @factors.each do |factor| %>
+          <tr>
+            <td><%= factor.id %></td>
+            <td><%= factor.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
