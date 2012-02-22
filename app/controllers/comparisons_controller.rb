@@ -1,5 +1,5 @@
 class ComparisonsController < ApplicationController
   def index
-    # TODO
+    @comparisons = Comparison.all
   end
 end
