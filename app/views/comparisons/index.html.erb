@@ -24,20 +24,18 @@
         <thead>
           <tr>
             <th>id</th>
-            <th>from state</th>
-            <th>to state</th>
+            <th>state</th>
             <th>species</th>
-            <th>cell type</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><a href="#">1</a></td>
-            <td>undifferentiated</td>
-            <td>differentiated</td>
-            <td>cow</td>
-            <td>mammary</td>
-          </tr>
+          <% @comparisons.each do |comparison| %>
+            <tr>
+              <td><%= comparison.id %></td>
+              <td><%= comparison.state %></td>
+              <td><%= comparison.species %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
