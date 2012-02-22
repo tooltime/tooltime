@@ -22,4 +22,4 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails', '2.0rc0'
+gem 'twitter-bootstrap-rails', '~> 2.0.0'
