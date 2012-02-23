@@ -6,9 +6,9 @@
   </div>
   <div class="row">
     <div class="span6">
-      <form class="form-horizontal">
+      <form action="" class="form-horizontal" method="get">
         <fieldset>
-          <%= select_tag :species, options_for_select(@species_opts), {:class => 'span2'} %>
+          <%= select_tag :species, options_for_select(@species_opts, @selected_species), {:class => 'span2'} %>
           <button type="submit" class="btn">Go</button>
         </fieldset>
       </form>
