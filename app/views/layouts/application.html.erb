@@ -19,9 +19,8 @@
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="">Edit</a></li>
-            <li><a href="#bulk-uploader-modal" data-toggle="modal">Upload <em>in bulk</em></a></li>
-            <li><a href="">Upload <em>individually</em></a></li>
+            <li><a href="">Edit Data</a></li>
+            <li><a href="#bulk-uploader-modal" data-toggle="modal">Upload Data</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -36,7 +35,7 @@
           </ul>
         </li>
         <li class="browse-comparisons"><%= link_to '<i class="icon-th-list icon-white"></i>Browse Comparisons'.html_safe, comparisons_path %></li>
-        <li class="analytics"><a href="">Analytics</a></li>
+        <li class="analytics"><a href=""><i class="icon-list-alt icon-white"></i>Analytics</a></li>
       </ul>
     </div>
   </div>
@@ -49,9 +48,9 @@
   <div class="modal-body">
     <%= form_tag(data_upload_path, :multipart => true, :class => 'form-horizontal') do %>
       <fieldset>
-        <legend>in batch</legend>
+        <p>There should be 3 related .csv files for every set of gene data.</p>
         <div class="control-group">
-          <%= label_tag :data, 'data (zipped folder)', :class => 'control-label' %>
+          <%= label_tag :data, 'select your files', :class => 'control-label' %>
           <div class="controls">
             <%= file_field_tag 'data[]', :multiple => 'multiple', :accept => 'text/csv' %>
           </div>
