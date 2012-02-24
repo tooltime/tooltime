@@ -2,8 +2,8 @@ require 'csv'
 
 module Parsers
   class CSVParser
-    def initialize(filename)
-      @data = CSV.read(filename)
+    def initialize(data)
+      @data = CSV.parse(data)
     end
     
     def get_val(key)

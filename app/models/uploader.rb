@@ -2,34 +2,17 @@ require 'fileutils'
 
 class Uploader
   def initialize
-    FileUtils.mkdir dir
+    @files = []
   end
   
-  def dir
-    Rails.root.join('tmp', 'data')
+  def add_uploaded_file(filename, contents)
+    @files << {name: filename, contents: contents}
   end
-  
+    
   def perform
-    Rails.logger.debug "[UPLOADER] Uploader started...\n"
-    parse_data
-    remove_uploaded_data
-    Rails.logger.debug "\n[UPLOADER] Uploader finished."
-  end
-  
-  private
-  
-  def remove_uploaded_data
-    FileUtils.rm_r dir
-  end
-  
-  def parse_data
-    Dir[File.join(dir, '*.csv')].sort.each_slice(3) do |triplet|
-      Rails.logger.debug "[UPLOADER] parsing data set..."
-      triplet.each do |f|
-        Rails.logger.debug "[UPLOADER]\t#{File.split(f).last}"
-      end
-      Importer.new(*triplet).import!
-      Rails.logger.debug "[UPLOADER] ...done"
+    @files.sort{|a,b| a[:name] <=> b[:name]}.each_slice(3) do |csvs|
+      csv_data = csvs.map {|triplet| triplet[:contents]}
+      Importer.new(*csv_data).import!
     end
   end
 end
