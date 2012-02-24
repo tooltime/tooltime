@@ -4,6 +4,6 @@ class Comparison < ActiveRecord::Base
   
   # returns unique values of species for all comparisons
   def self.all_species
-    self.select('*').group(:species).map(&:species)
+    self.all.map(&:species).uniq
   end
 end
