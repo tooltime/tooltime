@@ -1,0 +1,34 @@
+<div class="content show-comparison">
+  <div class="row banner">
+    <div class="span12">
+      <h1><%= @comparison.state %> <small><%= @comparison.species %></small></h1>
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <h2>Experiments</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>label</th>
+            <th>tess</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @comparison.experiments.each do |exp| %>
+            <tr>
+              <td><%= link_to(exp.id, comparison_experiment_path(@comparison, exp)) %></td>
+              <td><%= exp.label %></td>
+              <td><%= exp.tess %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
