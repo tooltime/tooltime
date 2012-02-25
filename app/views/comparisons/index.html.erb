@@ -27,7 +27,7 @@
         <tbody>
           <% @comparisons.each do |comparison| %>
             <tr>
-              <td><%= comparison.id %></td>
+              <td><%= link_to(comparison.id, comparison) %></td>
               <td><%= comparison.state %></td>
               <td><%= comparison.species %></td>
             </tr>
