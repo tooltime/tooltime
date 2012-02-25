@@ -1,13 +1,19 @@
 Tooltime::Application.routes.draw do
-  get "transcription_factors/index"
-
+  # misc routes
   get 'main/index'
   
+  # data uploading
   post  'data/upload'
   match "/data/status/:job_id" => "data#status"
   
-  resources :comparisons, :only => [:index, :show]
+  # browse comparisons
+  resources :comparisons, :only => [:index, :show] do
+    resources :experiments, :only => [:index, :show]
+  end
+  
+  # db summary: transcription factors
   resources :transcription_factors, :only => [:index]
   
+  # main page
   root :to => 'main#index'
 end

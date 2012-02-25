@@ -22,7 +22,7 @@
         <tbody>
           <% @comparison.experiments.each do |exp| %>
             <tr>
-              <td><%= exp.id %></td>
+              <td><%= link_to(exp.id, comparison_experiment_path(@comparison, exp)) %></td>
               <td><%= exp.label %></td>
               <td><%= exp.tess %></td>
             </tr>
