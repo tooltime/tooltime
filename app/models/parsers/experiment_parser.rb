@@ -9,7 +9,12 @@ module Parsers
     end
     
     def import
-      Experiment.create(:label => get_val(:label), :tess => get_val(:tess))
+      e = Experiment.new(:label => get_val(:label), :tess => get_val(:tess))
+      if e.save
+        e
+      else
+        Experiment.where(:label => get_val(:label), :tess => get_val(:tess)).first
+      end
     end
   end
 end
