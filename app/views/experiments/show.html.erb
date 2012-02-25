@@ -1,0 +1,47 @@
+<div class="content show-comparison-experiment">
+  <div class="row banner">
+    <div class="span12">
+      <h2>Comparison:</h2>
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <h3><%= @comparison.state %> <small><%= @comparison.species %></small></h1>
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <h2>Experiment:</h2>
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <h3><%= @experiment.label %> <small><%= @experiment.tess %></small></h1>
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <h2>Genes:</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @experiment.genes.each do |gene| %>
+            <tr>
+              <td><%= gene.id %></td>
+              <td><%= gene.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

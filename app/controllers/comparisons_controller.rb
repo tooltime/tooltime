@@ -8,4 +8,8 @@ class ComparisonsController < ApplicationController
       @comparisons = Comparison.where(:species => @selected_species)
     end
   end
+  
+  def show
+    @comparison = Comparison.find(params[:id])
+  end
 end
