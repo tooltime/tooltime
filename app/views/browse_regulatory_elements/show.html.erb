@@ -52,41 +52,28 @@
   </div>
   <div class="row banner">
     <div class="span12">
-      <h2>Regulatory Elements:</h2>
+      <h2>Regulatory Element:</h2>
     </div>
   </div>
   <div class="row">
-    <div class="span12">
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>sequence</th>
-            <th>beginning</th>
-            <th>length</th>
-            <th>sense</th>
-            <th>la</th>
-            <th>la/</th>
-            <th>lq</th>
-            <th>ld</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @gene.regulatory_elements.each do |re| %>
-            <tr>
-              <td><%= link_to re.id, comparison_experiment_gene_regulatory_element_path(@comparison, @experiment, @gene, re) %></td>
-              <td><%= re.sequence %></td>
-              <td><%= re.beg %></td>
-              <td><%= re.len %></td>
-              <td><%= re.sns %></td>
-              <td><%= re.la %></td>
-              <td><%= re.la_slash %></td>
-              <td><%= re.lq %></td>
-              <td><%= re.ld %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="span2"><h4>sequence</h4></div>
+    <div class="span10"><h3><%= @re_element.sequence %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>location</h4></div>
+    <div class="span10">
+      <h3><%= @re_element.beg %> <small>beginning</small></h3>
+      <h3><%= @re_element.len %> <small>length</small></h3>
+      <h3><%= @re_element.sns %> <small>sense</small></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>stats</h4></div>
+    <div class="span10">
+      <h3><%= @re_element.la %> <small>la</small></h3>
+      <h3><%= @re_element.la_slash %> <small>la/</small></h3>
+      <h3><%= @re_element.lq %> <small>lq</small></h3>
+      <h3><%= @re_element.ld %> <small>ld</small></h3>
     </div>
   </div>
 </div>
