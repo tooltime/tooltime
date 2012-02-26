@@ -45,6 +45,11 @@
           <tr>
             <th>id</th>
             <th>name</th>
+            <th>chromosome</th>
+            <th>begin site</th>
+            <th>end site</th>
+            <th>regulation</th>
+            <th>factors discovered</th>
           </tr>
         </thead>
         <tbody>
@@ -52,6 +57,11 @@
             <tr>
               <td><%= gene.id %></td>
               <td><%= gene.name %></td>
+              <td><%= gene.chromosome %></td>
+              <td><%= gene.beg_site %></td>
+              <td><%= gene.end_site %></td>
+              <td><%= gene.regulation %></td>
+              <td><%= gene.num_factors %></td>
             </tr>
           <% end %>
         </tbody>
