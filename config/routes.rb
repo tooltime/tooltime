@@ -8,7 +8,9 @@ Tooltime::Application.routes.draw do
   
   # browse comparisons
   resources :comparisons, :only => [:index, :show] do
-    resources :experiments, :only => [:index, :show]
+    resources :experiments, :only => [:index, :show] do
+      resources :genes, :only => [:show], :controller => 'browse_genes'
+    end
   end
   
   # db summary: transcription factors
