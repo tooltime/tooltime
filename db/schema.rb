@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217074055) do
+ActiveRecord::Schema.define(:version => 20120226211639) do
 
   create_table "comparisons", :force => true do |t|
     t.string   "state"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20120217074055) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.integer  "experiment_id"
+    t.integer  "num_factors"
   end
 
   create_table "pages", :force => true do |t|
