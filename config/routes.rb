@@ -12,7 +12,7 @@ Tooltime::Application.routes.draw do
   end
   
   # db summary: transcription factors
-  resources :transcription_factors, :only => [:index]
+  resources :transcription_factors, :only => [:index, :show]
   
   # main page
   root :to => 'main#index'
