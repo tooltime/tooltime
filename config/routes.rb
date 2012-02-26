@@ -8,7 +8,7 @@ Tooltime::Application.routes.draw do
   
   # browse comparisons
   resources :comparisons, :only => [:index, :show] do
-    resources :experiments, :only => [:index, :show] do
+    resources :experiments, :only => [:show] do
       resources :genes, :only => [:show], :controller => 'browse_genes'
     end
   end
