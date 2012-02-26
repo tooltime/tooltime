@@ -1,12 +1,20 @@
 <div class="content show-comparison">
   <div class="row banner">
     <div class="span12">
-      <h1><%= @comparison.state %> <small><%= @comparison.species %></small></h1>
+      <h2>Comparison:</h2>
     </div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>state:</h4></div>
+    <div class="span10"><h3><%= @comparison.state %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>species:</h4></div>
+    <div class="span10"><h3><%= @comparison.species %></h3></div>
   </div>
   <div class="row banner">
     <div class="span12">
-      <h2>Experiments</h2>
+      <h2>Experiments:</h2>
     </div>
   </div>
   <div class="row">
