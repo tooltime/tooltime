@@ -16,6 +16,7 @@ class Importer
     
     gene.promoter = promoter
     reg_elements.each {|re| gene.regulatory_elements << re}
+    gene.update_num_factors
     experiment.genes << gene
     comparison.experiments << experiment
   end
