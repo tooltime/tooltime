@@ -13,7 +13,10 @@ Tooltime::Application.routes.draw do
   
   # db summary: transcription factors
   resources :transcription_factors, :only => [:index]
-  
+ 
+  # db summary: regulatory elements
+  resources :regulatory_elements, :only => [:index]
+ 
   # main page
   root :to => 'main#index'
 end
