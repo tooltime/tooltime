@@ -7,13 +7,21 @@
         <tr>
           <th>id</th>
           <th>name</th>
+          <th>FAC</th>
+          <th># of models</th>
+          <th># of genes</th>
+          <th>total occurences</th>
         </tr>
       </thead>
       <tbody>
         <% @factors.each do |factor| %>
           <tr>
-            <td><%= factor.id %></td>
+            <td><%= link_to(factor.id, factor) %></td>
             <td><%= factor.name %></td>
+            <td></td>
+            <td></td>
+            <td><%= count_genes factor %></td>
+            <td><%= count_total factor %></td>
           </tr>
         <% end %>
       </tbody>
