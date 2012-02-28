@@ -16,7 +16,7 @@ Tooltime::Application.routes.draw do
   end
   
   # db summary: transcription factors
-  resources :transcription_factors, :only => [:index]
+  resources :transcription_factors, :only => [:index, :show]
 
   # db summary: genes
   resources :genes, :only => [:index]
