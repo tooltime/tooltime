@@ -13,6 +13,10 @@ Tooltime::Application.routes.draw do
   
   # db summary: transcription factors
   resources :transcription_factors, :only => [:index]
+
+  # db summary: genes
+  resources :genes, :only => [:index]
+
   
   # main page
   root :to => 'main#index'
