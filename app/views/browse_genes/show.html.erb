@@ -1,0 +1,92 @@
+<div class="content show-comparison-gene">
+  <div class="row banner">
+    <div class="span12">
+      <h2>Comparison:</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>state:</h4></div>
+    <div class="span10"><h3><%= @comparison.state %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>species:</h4></div>
+    <div class="span10"><h3><%= @comparison.species %></h3></div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <h2>Experiment:</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>label</h4></div>
+    <div class="span10"><h3><%= @experiment.label %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>tess</h4></div>
+    <div class="span10"><h3><%= @experiment.tess %></h3></div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <h2>Gene:</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>name</h4></div>
+    <div class="span10"><h3><%= @gene.name %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>location</h4></div>
+    <div class="span10">
+      <h3><%= @gene.chromosome %> <small>chromosome</small></h3>
+      <h3><%= @gene.beg_site %> <small>begin site</small></h3>
+      <h3><%= @gene.end_site %> <small>end site</small></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>regulation</h4></div>
+    <div class="span10"><h3><%= @gene.regulation %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>factors discovered</h4></div>
+    <div class="span10"><h3><%= @gene.num_factors %></h3></div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <h2>Regulatory Elements:</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>sequence</th>
+            <th>beginning</th>
+            <th>length</th>
+            <th>sense</th>
+            <th>la</th>
+            <th>la/</th>
+            <th>lq</th>
+            <th>ld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @gene.regulatory_elements.each do |re| %>
+            <tr>
+              <td><%= link_to re.id, comparison_experiment_gene_regulatory_element_path(@comparison, @experiment, @gene, re) %></td>
+              <td><%= re.sequence %></td>
+              <td><%= re.beg %></td>
+              <td><%= re.len %></td>
+              <td><%= re.sns %></td>
+              <td><%= re.la %></td>
+              <td><%= re.la_slash %></td>
+              <td><%= re.lq %></td>
+              <td><%= re.ld %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

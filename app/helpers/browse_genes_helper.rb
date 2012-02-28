@@ -1,0 +1,2 @@
+module BrowseGenesHelper
+end
