@@ -8,12 +8,13 @@ module Parsers
       map[key]
     end
     
+    # ignoring TESS for now...should fix later
     def import
-      e = Experiment.new(:label => get_val(:label), :tess => get_val(:tess))
+      e = Experiment.new(:label => get_val(:label))
       if e.save
         e
       else
-        Experiment.where(:label => get_val(:label), :tess => get_val(:tess)).first
+        Experiment.where(:label => get_val(:label)).first
       end
     end
   end
