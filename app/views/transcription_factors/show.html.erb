@@ -9,21 +9,21 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>comparison</th>
-            <th>experiment</th>
-            <th>TESS</th>
-            <th>gene</th>
-            <th>regulatory element location</th>
-            <th>model</th>
+            <th><%= link_to "comparison", :sort => "state" %></th>
+            <th><%= link_to "experiment", :sort => "label" %></th>
+            <th><%= link_to "TESS",       :sort => "tess" %></th>
+            <th><%= link_to "gene",       :sort => "name" %></th>
+            <th><%= link_to "regulatory element location", :sort => "beg" %></th>
+            <th><%= link_to "model",      :sort => "model" %></th>
           </tr>
         </thead>
         <tbody>
-          <% @factor.regulatory_elements.each do |reg| %>
+          <% @regulatoryElements.each do |reg| %>
             <tr>
-              <td><%= get_comparison(reg).state %></td>
-              <td><%= get_experiment(reg).label %></td>
-              <td><%= get_experiment(reg).tess %></td>
-              <td><%= get_gene(reg).name %></td>
+              <td><%= reg.gene.experiment.comparison.state %></td>
+              <td><%= reg.gene.experiment.label %></td>
+              <td><%= reg.gene.experiment.tess %></td>
+              <td><%= reg.gene.name %></td>
               <td><%= reg.beg %></td>
               <td><%= reg.model %></td>
             </tr>
