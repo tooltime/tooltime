@@ -5,12 +5,12 @@
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>FAC</th>
-          <th># of models</th>
-          <th># of genes</th>
-          <th>total occurences</th>
+          <th><%= link_to "id",          :sort => "id" %></th>
+          <th><%= link_to "name",        :sort => "name" %></th>
+          <th><%= link_to "FAC",         :sort => "fac" %></th>
+          <th><%= link_to "# of models", :sort => "modelCount" %></th>
+          <th><%= link_to "# of genes",  :sort => "geneCount" %></th>
+          <th><%= link_to "total occurences", :sort => "totalCount" %></th>
         </tr>
       </thead>
       <tbody>
@@ -20,8 +20,8 @@
             <td><%= factor.name %></td>
             <td></td>
             <td></td>
-            <td><%= count_genes factor %></td>
-            <td><%= count_total factor %></td>
+            <td><%= factor.count_genes %></td>
+            <td><%= factor.count_total %></td>
           </tr>
         <% end %>
       </tbody>
