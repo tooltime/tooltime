@@ -1,79 +1,87 @@
 <div class="content show-comparison-gene">
-  <div class="row banner">
-    <div class="span12">
-      <h2>Comparison:</h2>
+  <div class="row">
+    <div class="span6">
+      <div class="row banner">
+        <div class="span6"><h2>Comparison:</h2></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>state:</h4></div>
+        <div class="span4"><h3><%= @comparison.state %></h3></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>species:</h4></div>
+        <div class="span4"><h3><%= @comparison.species %></h3></div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="row banner">
+        <div class="span6"><h2>Experiment:</h2></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>label:</h4></div>
+        <div class="span4"><h3><%= @experiment.label %></h3></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>tess:</h4></div>
+        <div class="span4"><h3><%= @experiment.tess %></h3></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>genes identified:</h4></div>
+        <div class="span4">
+          <h3><%= @experiment.identified %> <small>total</small></h3>
+          <h3><%= @experiment.identified(:up) %> <small>up regulated</small></h3>
+          <h3><%= @experiment.identified(:down) %> <small>down regulated</small></h3>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="span2"><h4>state:</h4></div>
-    <div class="span10"><h3><%= @comparison.state %></h3></div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>species:</h4></div>
-    <div class="span10"><h3><%= @comparison.species %></h3></div>
-  </div>
-  <div class="row banner">
-    <div class="span12">
-      <h2>Experiment:</h2>
+    <div class="span6">
+      <div class="row banner">
+        <div class="span6"><h2>Gene:</h2></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>name</h4></div>
+        <div class="span4"><h3><%= @gene.name %></h3></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>location</h4></div>
+        <div class="span4">
+          <h3><%= @gene.chromosome %> <small>chromosome</small></h3>
+          <h3><%= @gene.beg_site %> <small>begin site</small></h3>
+          <h3><%= @gene.end_site %> <small>end site</small></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>factors discovered</h4></div>
+        <div class="span4"><h3><%= @gene.num_factors %></h3></div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>label</h4></div>
-    <div class="span10"><h3><%= @experiment.label %></h3></div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>tess</h4></div>
-    <div class="span10"><h3><%= @experiment.tess %></h3></div>
-  </div>
-  <div class="row banner">
-    <div class="span12">
-      <h2>Gene:</h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>name</h4></div>
-    <div class="span10"><h3><%= @gene.name %></h3></div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>location</h4></div>
-    <div class="span10">
-      <h3><%= @gene.chromosome %> <small>chromosome</small></h3>
-      <h3><%= @gene.beg_site %> <small>begin site</small></h3>
-      <h3><%= @gene.end_site %> <small>end site</small></h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>regulation</h4></div>
-    <div class="span10"><h3><%= @gene.regulation %></h3></div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>factors discovered</h4></div>
-    <div class="span10"><h3><%= @gene.num_factors %></h3></div>
-  </div>
-  <div class="row banner">
-    <div class="span12">
-      <h2>Regulatory Element:</h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>sequence</h4></div>
-    <div class="span10"><h3><%= @re_element.sequence %></h3></div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>location</h4></div>
-    <div class="span10">
-      <h3><%= @re_element.beg %> <small>beginning</small></h3>
-      <h3><%= @re_element.len %> <small>length</small></h3>
-      <h3><%= @re_element.sns %> <small>sense</small></h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>stats</h4></div>
-    <div class="span10">
-      <h3><%= @re_element.la %> <small>la</small></h3>
-      <h3><%= @re_element.la_slash %> <small>la/</small></h3>
-      <h3><%= @re_element.lq %> <small>lq</small></h3>
-      <h3><%= @re_element.ld %> <small>ld</small></h3>
+    <div class="span6">
+      <div class="row banner">
+        <div class="span6"><h2>Regulatory Element:</h2></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>sequence</h4></div>
+        <div class="span4"><h3><%= @re_element.sequence %></h3></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>location</h4></div>
+        <div class="span4">
+          <h3><%= @re_element.beg %> <small>beginning</small></h3>
+          <h3><%= @re_element.len %> <small>length</small></h3>
+          <h3><%= @re_element.sns %> <small>sense</small></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>stats</h4></div>
+        <div class="span4">
+          <h3><%= @re_element.la %> <small>la</small></h3>
+          <h3><%= @re_element.la_slash %> <small>la/</small></h3>
+          <h3><%= @re_element.lq %> <small>lq</small></h3>
+          <h3><%= @re_element.ld %> <small>ld</small></h3>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row banner">
@@ -86,8 +94,8 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>id</th>
-            <th>name</th>
+            <th><%= sortable_col :id %></th>
+            <th><%= sortable_col :name %></th>
           </tr>
         </thead>
         <tbody>

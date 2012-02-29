@@ -1,36 +1,37 @@
 <div class="content show-comparison-experiment">
-  <div class="row banner">
-    <div class="span12">
-      <h2>Comparison:</h2>
+  <div class="row">
+    <div class="span6">
+      <div class="row banner">
+        <div class="span6"><h2>Comparison:</h2></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>state:</h4></div>
+        <div class="span4"><h3><%= @comparison.state %></h3></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>species:</h4></div>
+        <div class="span4"><h3><%= @comparison.species %></h3></div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>state:</h4></div>
-    <div class="span10"><h3><%= @comparison.state %></h3></div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>species:</h4></div>
-    <div class="span10"><h3><%= @comparison.species %></h3></div>
-  </div>
-  <div class="row banner">
-    <div class="span12">
-      <h2>Experiment:</h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>label</h4></div>
-    <div class="span10"><h3><%= @experiment.label %></h3></div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>tess</h4></div>
-    <div class="span10"><h3><%= @experiment.tess %></h3></div>
-  </div>
-  <div class="row">
-    <div class="span2"><h4>genes identified</h4></div>
-    <div class="span10">
-      <h3><%= @experiment.identified %> <small>total</small></h3>
-      <h3><%= @experiment.identified(:up) %> <small>up regulated</small></h3>
-      <h3><%= @experiment.identified(:down) %> <small>down regulated</small></h3>
+    <div class="span6">
+      <div class="row banner">
+        <div class="span6"><h2>Experiment:</h2></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>label:</h4></div>
+        <div class="span4"><h3><%= @experiment.label %></h3></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>tess:</h4></div>
+        <div class="span4"><h3><%= @experiment.tess %></h3></div>
+      </div>
+      <div class="row">
+        <div class="span2"><h4>genes identified:</h4></div>
+        <div class="span4">
+          <h3><%= @experiment.identified %> <small>total</small></h3>
+          <h3><%= @experiment.identified(:up) %> <small>up regulated</small></h3>
+          <h3><%= @experiment.identified(:down) %> <small>down regulated</small></h3>
+      </div>
     </div>
   </div>
   <div class="row banner">
@@ -43,17 +44,17 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>chromosome</th>
-            <th>begin site</th>
-            <th>end site</th>
-            <th>regulation</th>
-            <th>factors discovered</th>
+            <th><%= sortable_col :id %></th>
+            <th><%= sortable_col :name %></th>
+            <th><%= sortable_col :chromosome %></th>
+            <th><%= sortable_col :beg_site, 'begin site' %></th>
+            <th><%= sortable_col :end_site %></th>
+            <th><%= sortable_col :regulation %></th>
+            <th><%= sortable_col :num_factors, 'factors discovered' %></th>
           </tr>
         </thead>
         <tbody>
-          <% @experiment.genes.each do |gene| %>
+          <% @genes.each do |gene| %>
             <tr>
               <td><%= link_to gene.id, comparison_experiment_gene_path(@comparison, @experiment, gene) %></td>
               <td><%= gene.name %></td>
