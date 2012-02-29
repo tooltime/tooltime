@@ -4,13 +4,13 @@
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>id</th>
-          <th>species</th>
-          <th>gene name</th>
-          <th>gene abbreviation</th>
-          <th>chromosome</th>
-          <th>begin site</th>
-          <th>end site</th>
+          <th><%= link_to "id",          :sort => "id" %></th>
+          <th><%= link_to "species",          :sort => "species" %></th>
+          <th><%= link_to "gene name", :sort => "name" %></th>
+          <th><%= link_to "gene abbreviation", :sort => "abbrev" %></th>
+          <th><%= link_to "chromosome", :sort => "chromosome" %></th>
+          <th><%= link_to "begin site", :sort => "beg_site" %></th>
+          <th><%= link_to "end site", :sort => "end_site" %></th>          
           <th>number of comparisons</th>
           <th>number of experiments</th>
         </tr>
