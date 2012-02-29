@@ -60,19 +60,19 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>id</th>
-            <th>sequence</th>
-            <th>beginning</th>
-            <th>length</th>
-            <th>sense</th>
-            <th>la</th>
-            <th>la/</th>
-            <th>lq</th>
-            <th>ld</th>
+            <th><%= sortable_col :id %></th>
+            <th><%= sortable_col :sequence %></th>
+            <th><%= sortable_col :beg, 'beginning' %></th>
+            <th><%= sortable_col :len, 'length' %></th>
+            <th><%= sortable_col :sns, 'sense' %></th>
+            <th><%= sortable_col :la %></th>
+            <th><%= sortable_col :la_slash, 'la/' %></th>
+            <th><%= sortable_col :lq %></th>
+            <th><%= sortable_col :ld %></th>
           </tr>
         </thead>
         <tbody>
-          <% @gene.regulatory_elements.each do |re| %>
+          <% @reg_elements.each do |re| %>
             <tr>
               <td><%= link_to re.id, comparison_experiment_gene_regulatory_element_path(@comparison, @experiment, @gene, re) %></td>
               <td><%= re.sequence %></td>
