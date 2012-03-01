@@ -1,5 +1,5 @@
 class GenesController < ApplicationController
   def index
-    @genes = Gene.all
+    @genes = sorted_collection(Gene.all)
   end
-end
+end 
