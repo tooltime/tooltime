@@ -4,13 +4,12 @@
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th><%= link_to "id",          :sort => "id" %></th>
-          <th><%= link_to "species",          :sort => "species" %></th>
-          <th><%= link_to "gene name", :sort => "name" %></th>
-          <th><%= link_to "gene abbreviation", :sort => "abbrev" %></th>
-          <th><%= link_to "chromosome", :sort => "chromosome" %></th>
-          <th><%= link_to "begin site", :sort => "beg_site" %></th>
-          <th><%= link_to "end site", :sort => "end_site" %></th>          
+          <th><%= sortable_col :species%></th>
+          <th><%= sortable_col :name%></th>
+          <th><%= sortable_col :abbrev%></th>
+          <th><%= sortable_col :chromosome %></th>
+          <th><%= sortable_col :beg_site, 'Begin Site' %></th>
+          <th><%= sortable_col :end_site, 'End Site' %></th>          
           <th>number of comparisons</th>
           <th>number of experiments</th>
         </tr>
@@ -18,7 +17,6 @@
       <tbody>
         <% @genes.each do |gene| %>
           <tr>
-            <td><%= gene.id %></td>
             <td><%= gene.species %></td>
             <td><%= gene.name %></td>
             <td><%= gene.abbrev %></td>
