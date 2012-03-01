@@ -21,6 +21,8 @@ Tooltime::Application.routes.draw do
   # db summary: genes
   resources :genes, :only => [:index]
 
+  # db summary: regulatory elements
+  resources :regulatory_elements, :only => [:index]
   
   # main page
   root :to => 'main#index'
