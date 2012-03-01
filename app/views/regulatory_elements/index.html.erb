@@ -1,0 +1,40 @@
+<h1>Regulatory Elements</h1>
+
+<div class="row">
+  <div class="span12">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>beg</th>
+          <th>len</th>
+          <th>sns</th>
+          <th>model</th>
+          <th>sequence</th>
+          <th>la</th>
+          <th>la/</th>
+          <th>lq</th>
+          <th>ld</th>
+          <th>ppv</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @regulatory_elements.each do |regulatory_element| %>
+          <tr>
+            <td><%= regulatory_element.id %></td>
+            <td><%= regulatory_element.beg %></td>
+            <td><%= regulatory_element.len %></td>
+            <td><%= regulatory_element.sns %></td>
+            <td><%= regulatory_element.model %></td>
+            <td><%= regulatory_element.sequence %></td>
+            <td><%= regulatory_element.la %></td>
+            <td><%= regulatory_element.la_slash %></td>
+            <td><%= regulatory_element.lq %></td>
+            <td><%= regulatory_element.ld %></td>
+            <td><%= regulatory_element.ppv %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
