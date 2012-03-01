@@ -1,33 +1,35 @@
-<h1>Genes</h1>
-<div class="row">
-  <div class="span12">
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th><%= sortable_col :species%></th>
-          <th><%= sortable_col :name%></th>
-          <th><%= sortable_col :abbrev%></th>
-          <th><%= sortable_col :chromosome %></th>
-          <th><%= sortable_col :beg_site, 'Begin Site' %></th>
-          <th><%= sortable_col :end_site, 'End Site' %></th>          
-          <th>number of comparisons</th>
-          <th>number of experiments</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @genes.each do |gene| %>
+<div class="content">
+  <h1>Genes</h1>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
           <tr>
-            <td><%= gene.species %></td>
-            <td><%= gene.name %></td>
-            <td><%= gene.abbrev %></td>
-            <td><%= gene.chromosome %></td>
-            <td><%= gene.beg_site %></td>
-            <td><%= gene.end_site %></td>
-            <td>"Some query"</td>
-            <td>"Some query"</td>
+            <th><%= sortable_col :species%></th>
+            <th><%= sortable_col :name%></th>
+            <th><%= sortable_col :abbrev%></th>
+            <th><%= sortable_col :chromosome %></th>
+            <th><%= sortable_col :beg_site, 'Begin Site' %></th>
+            <th><%= sortable_col :end_site, 'End Site' %></th>          
+            <th># Of Comparisons</th>
+            <th># Of Experiments</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @genes.each do |gene| %>
+            <tr>
+              <td><%= gene.species %></td>
+              <td><%= gene.name %></td>
+              <td><%= gene.abbrev %></td>
+              <td><%= gene.chromosome %></td>
+              <td><%= gene.beg_site %></td>
+              <td><%= gene.end_site %></td>
+              <td>"Some query"</td>
+              <td>"Some query"</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
