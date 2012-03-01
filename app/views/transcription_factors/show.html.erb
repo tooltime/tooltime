@@ -1,0 +1,35 @@
+<div class="content show-transcription_factor">
+  <div class="row banner">
+    <div class="span12">
+      <h1><%= @factor.name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th><%= link_to "comparison", :sort => "state" %></th>
+            <th><%= link_to "experiment", :sort => "label" %></th>
+            <th><%= link_to "TESS",       :sort => "tess" %></th>
+            <th><%= link_to "gene",       :sort => "name" %></th>
+            <th><%= link_to "regulatory element location", :sort => "beg" %></th>
+            <th><%= link_to "model",      :sort => "model" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @regulatoryElements.each do |reg| %>
+            <tr>
+              <td><%= reg.gene.experiment.comparison.state %></td>
+              <td><%= reg.gene.experiment.label %></td>
+              <td><%= reg.gene.experiment.tess %></td>
+              <td><%= reg.gene.name %></td>
+              <td><%= reg.beg %></td>
+              <td><%= reg.model %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

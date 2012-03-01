@@ -16,12 +16,12 @@
   </div>
   <div class="row">
     <div class="span12">
-      <table class="table table-bordered table-striped">
+      <table class="table table-bordered table-striped table-sortable">
         <thead>
           <tr>
-            <th>id</th>
-            <th>state</th>
-            <th>species</th>
+            <th><%= sortable_col :id %></th>
+            <th><%= sortable_col :state %></th>
+            <th><%= sortable_col :species %></th>
           </tr>
         </thead>
         <tbody>

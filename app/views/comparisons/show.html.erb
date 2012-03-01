@@ -1,12 +1,20 @@
 <div class="content show-comparison">
   <div class="row banner">
     <div class="span12">
-      <h1><%= @comparison.state %> <small><%= @comparison.species %></small></h1>
+      <h2>Comparison:</h2>
     </div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>state:</h4></div>
+    <div class="span10"><h3><%= @comparison.state %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>species:</h4></div>
+    <div class="span10"><h3><%= @comparison.species %></h3></div>
   </div>
   <div class="row banner">
     <div class="span12">
-      <h2>Experiments</h2>
+      <h2>Experiments:</h2>
     </div>
   </div>
   <div class="row">
@@ -14,17 +22,23 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>id</th>
-            <th>label</th>
-            <th>tess</th>
+            <th><%= sortable_col :id %></th>
+            <th><%= sortable_col :label %></th>
+            <th><%= sortable_col :tess %></th>
+            <th><%= sortable_col :genes_identified_total, 'genes identified' %> <span class="label label-info">total</span></th>
+            <th><%= sortable_col :genes_identified_up, 'genes identified' %> <span class="label label-info">up regulated</span></th>
+            <th><%= sortable_col :genes_identified_down, 'genes identified' %> <span class="label label-info">down regulated</span></th>
           </tr>
         </thead>
         <tbody>
-          <% @comparison.experiments.each do |exp| %>
+          <% @experiments.each do |exp| %>
             <tr>
               <td><%= link_to(exp.id, comparison_experiment_path(@comparison, exp)) %></td>
               <td><%= exp.label %></td>
               <td><%= exp.tess %></td>
+              <td><%= exp.identified %></td>
+              <td><%= exp.identified(:up) %></td>
+              <td><%= exp.identified(:down) %></td>
             </tr>
           <% end %>
         </tbody>
