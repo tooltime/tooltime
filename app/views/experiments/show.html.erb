@@ -39,6 +39,11 @@
       <h2>Genes:</h2>
     </div>
   </div>
+  <div class="row banner">
+    <div class="span12">
+      <a href="#filter-experiments-modal" data-toggle="modal">filter</a>
+    </div>
+  </div>
   <div class="row">
     <div class="span12">
       <table class="table table-bordered table-striped">
@@ -66,5 +71,30 @@
         </tbody>
       </table>
     </div>
+  </div>
+</div>
+<div id="filter-experiments-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Filter</h3>
+  </div>
+  <div class="modal-body">
+    <form action="" class="form-horizontal" method="get">
+      <fieldset>
+        <div class="control-group">
+          <%= label_tag :regulation, 'by regulation', :class => 'control-label' %>
+          <div class="controls">
+            <select id="regulation" name="regulation" class="span2">
+              <option value="up">up</option>
+              <option value="down">down</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary">Filter</a>
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
   </div>
 </div>
