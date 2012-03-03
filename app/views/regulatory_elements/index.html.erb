@@ -1,27 +1,25 @@
-<h1>Regulatory Elements</h1>
-
-<div class="row">
-  <div class="span12">
+<div class="content">  
+   <h1>Regulatory Elements</h1>
+   <div class="row">
+   <div class="span12">
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>id</th>
-          <th>beg</th>
-          <th>len</th>
-          <th>sns</th>
-          <th>model</th>
-          <th>sequence</th>
-          <th>la</th>
-          <th>la/</th>
-          <th>lq</th>
-          <th>ld</th>
-          <th>ppv</th>
+          <th><%= sortable_col :beg %></th>
+          <th><%= sortable_col :len %></th>
+          <th><%= sortable_col :sns %></th>
+          <th><%= sortable_col :model %></th>
+          <th><%= sortable_col :sequence %></th>
+          <th><%= sortable_col :la %></th>
+          <th><%= sortable_col :la_slash %></th>
+          <th><%= sortable_col :lq %></th>
+          <th><%= sortable_col :ld %></th>
+          <th><%= sortable_col :ppv %></th>
         </tr>
       </thead>
       <tbody>
         <% @regulatory_elements.each do |regulatory_element| %>
           <tr>
-            <td><%= regulatory_element.id %></td>
             <td><%= regulatory_element.beg %></td>
             <td><%= regulatory_element.len %></td>
             <td><%= regulatory_element.sns %></td>
@@ -37,4 +35,5 @@
       </tbody>
     </table>
   </div>
+</div>
 </div>
