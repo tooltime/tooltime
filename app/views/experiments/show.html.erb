@@ -44,7 +44,6 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th><%= sortable_col :id %></th>
             <th><%= sortable_col :name %></th>
             <th><%= sortable_col :chromosome %></th>
             <th><%= sortable_col :beg_site, 'begin site' %></th>
@@ -56,8 +55,7 @@
         <tbody>
           <% @genes.each do |gene| %>
             <tr>
-              <td><%= link_to gene.id, comparison_experiment_gene_path(@comparison, @experiment, gene) %></td>
-              <td><%= gene.name %></td>
+              <td><%= link_to(gene.name, comparison_experiment_gene_path(@comparison, @experiment, gene)) %></td>
               <td><%= gene.chromosome %></td>
               <td><%= gene.beg_site %></td>
               <td><%= gene.end_site %></td>

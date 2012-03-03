@@ -22,7 +22,6 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th><%= sortable_col :id %></th>
             <th><%= sortable_col :label %></th>
             <th><%= sortable_col :tess %></th>
             <th><%= sortable_col :genes_identified_total, 'genes identified' %> <span class="label label-info">total</span></th>
@@ -33,8 +32,7 @@
         <tbody>
           <% @experiments.each do |exp| %>
             <tr>
-              <td><%= link_to(exp.id, comparison_experiment_path(@comparison, exp)) %></td>
-              <td><%= exp.label %></td>
+              <td><%= link_to(exp.label, comparison_experiment_path(@comparison, exp)) %></td>
               <td><%= exp.tess %></td>
               <td><%= exp.identified %></td>
               <td><%= exp.identified(:up) %></td>
