@@ -35,21 +35,18 @@
           <tr>            
             <th><%= sortable_col :label %></th>
             <th><%= sortable_col :tess %></th>
-            <th><%= sortable_col :genes_identified_total, 'genes identified' %> <span class="label label-info">total</span></th>
-            <th><%= sortable_col :genes_identified_up, 'genes identified' %> <span class="label label-info">up regulated</span></th>
-            <th><%= sortable_col :genes_identified_down, 'genes identified' %> <span class="label label-info">down regulated</span></th>
+            <th>Regulation</th>
           </tr>
         </thead>
         <tbody>
-          <!--<#% @genes.each do |gene| %>-->
+          <% @gene.get_experiments.each do |exp| %>
             <tr>              
+              <td><%= exp.label %></td>
               <td>?</td>
-              <td>?</td>
-              <td>?</td>
-              <td>?</td>
-              <td>?</td>              
+          <% end %>    
+              <td><%= @gene.regulation %></td>                     
             </tr>
-          <!--<#% end %>-->
+          
         </tbody>
       </table>
     </div>
