@@ -19,7 +19,6 @@
       <table class="table table-bordered table-striped table-sortable">
         <thead>
           <tr>
-            <th><%= sortable_col :id %></th>
             <th><%= sortable_col :state %></th>
             <th><%= sortable_col :species %></th>
           </tr>
@@ -27,8 +26,7 @@
         <tbody>
           <% @comparisons.each do |comparison| %>
             <tr>
-              <td><%= link_to(comparison.id, comparison) %></td>
-              <td><%= comparison.state %></td>
+              <td><%= link_to(comparison.state, comparison) %></td>
               <td><%= comparison.species %></td>
             </tr>
           <% end %>
