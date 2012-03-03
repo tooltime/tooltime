@@ -9,6 +9,7 @@ class TranscriptionFactorsController < ApplicationController
         @factors = TranscriptionFactor.order("#{sort} #{dir}")
       when "fac"
       when "modelCount"
+        @factors = TranscriptionFactor.joins(:regulatory_elements).group("transcription_factors.id").order("count(DISTINCT regulatory_elements.model) #{dir}")
       when "geneCount"
         @factors = TranscriptionFactor.joins(:regulatory_elements => :gene).group("transcription_factors.id").order("count(DISTINCT genes.id) #{dir}")
       when "totalCount"
