@@ -1,30 +1,30 @@
-<h1>Transcription Factors</h1>
+<div class='content'>
+  <h1>Transcription Factors</h1>
 
-<div class="row">
-  <div class="span12">
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th><%= link_to "id",          :sort => "id" %></th>
-          <th><%= link_to "name",        :sort => "name" %></th>
-          <th><%= link_to "FAC",         :sort => "fac" %></th>
-          <th><%= link_to "# of models", :sort => "modelCount" %></th>
-          <th><%= link_to "# of genes",  :sort => "geneCount" %></th>
-          <th><%= link_to "total occurences", :sort => "totalCount" %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @factors.each do |factor| %>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
           <tr>
-            <td><%= link_to(factor.id, factor) %></td>
-            <td><%= factor.name %></td>
-            <td></td>
-            <td></td>
-            <td><%= factor.count_genes %></td>
-            <td><%= factor.count_total %></td>
+            <th><%= sortable_col :name %></th>
+            <th><%= sortable_col :fac, "FAC" %></th>
+            <th><%= sortable_col :modelCount, "# of models" %></th>
+            <th><%= sortable_col :geneCount, "# of genes" %></th>
+            <th><%= sortable_col :totalCount, "total occurences" %></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @factors.each do |factor| %>
+            <tr>
+              <td><%= link_to(factor.name, factor) %></td>
+              <td></td>
+              <td><%= factor.count_models %></td>
+              <td><%= factor.count_genes %></td>
+              <td><%= factor.count_total %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
