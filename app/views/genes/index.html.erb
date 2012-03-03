@@ -5,10 +5,11 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th><%= sortable_col :species%></th>
-            <th><%= sortable_col :name%></th>
-            <th><%= sortable_col :abbrev%></th>
-            <th><%= sortable_col :chromosome %></th>
+            <th><%= sortable_col :id %></th>
+            <th><%= sortable_col :species, 'Species'%></th>
+            <th><%= sortable_col :name, 'Name'%></th>
+            <th><%= sortable_col :abbrev, 'Abbrev.'%></th>
+            <th><%= sortable_col :chromosome, 'Chromosome' %></th>
             <th><%= sortable_col :beg_site, 'Begin Site' %></th>
             <th><%= sortable_col :end_site, 'End Site' %></th>          
             <th># Of Comparisons</th>
@@ -18,6 +19,7 @@
         <tbody>
           <% @genes.each do |gene| %>
             <tr>
+              <td><%= link_to(gene.id, gene) %></td>
               <td><%= gene.species %></td>
               <td><%= gene.name %></td>
               <td><%= gene.abbrev %></td>

@@ -1,0 +1,57 @@
+<div class="content show-gene">
+  <div class="row">
+    <div class="span2"><h4>Gene:</h4></div>
+    <div class="span10"><h3><%= @gene.name %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>Species:</h4></div>
+    <div class="span10"><h3><%= @gene.species %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>Abbreviation:</h4></div>
+    <div class="span10"><h3><%= @gene.abbrev %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>Chromosome:</h4></div>
+    <div class="span10"><h3><%= @gene.chromosome %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>Begin Site:</h4></div>
+    <div class="span10"><h3><%= @gene.beg_site %></h3></div>
+  </div>
+  <div class="row">
+    <div class="span2"><h4>End Site:</h4></div>
+    <div class="span10"><h3><%= @gene.end_site %></h3></div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <h2>Experiments:</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>            
+            <th><%= sortable_col :label %></th>
+            <th><%= sortable_col :tess %></th>
+            <th><%= sortable_col :genes_identified_total, 'genes identified' %> <span class="label label-info">total</span></th>
+            <th><%= sortable_col :genes_identified_up, 'genes identified' %> <span class="label label-info">up regulated</span></th>
+            <th><%= sortable_col :genes_identified_down, 'genes identified' %> <span class="label label-info">down regulated</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--<#% @genes.each do |gene| %>-->
+            <tr>              
+              <td>?</td>
+              <td>?</td>
+              <td>?</td>
+              <td>?</td>
+              <td>?</td>              
+            </tr>
+          <!--<#% end %>-->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
