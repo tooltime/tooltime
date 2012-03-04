@@ -9,12 +9,12 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th><%= link_to "comparison", :sort => "state" %></th>
-            <th><%= link_to "experiment", :sort => "label" %></th>
-            <th><%= link_to "TESS",       :sort => "tess" %></th>
-            <th><%= link_to "gene",       :sort => "name" %></th>
-            <th><%= link_to "regulatory element location", :sort => "beg" %></th>
-            <th><%= link_to "model",      :sort => "model" %></th>
+            <th><%= sortable_col :state, "comparison" %></th>
+            <th><%= sortable_col :label, "experiment" %></th>
+            <th><%= sortable_col :tess,  "TESS" %></th>
+            <th><%= sortable_col :name,  "gene" %></th>
+            <th><%= sortable_col :beg,   "regulatory_element_location" %></th>
+            <th><%= sortable_col :model %></th>
           </tr>
         </thead>
         <tbody>

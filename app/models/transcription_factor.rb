@@ -13,4 +13,9 @@ class TranscriptionFactor < ActiveRecord::Base
     self.regulatory_elements.count
   end
 
+  #Count the total unique number of models in which this transcription factor was found
+  def count_models()
+    self.regulatory_elements.count(:select => "distinct regulatory_elements.model")
+  end
+
 end
