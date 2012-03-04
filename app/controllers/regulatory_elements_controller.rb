@@ -1,5 +1,5 @@
 class RegulatoryElementsController < ApplicationController
    def index
-      @regulatory_elements = RegulatoryElement.all
+      @regulatory_elements = sorted_collection(RegulatoryElement.all)
    end
 end
