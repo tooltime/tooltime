@@ -19,7 +19,7 @@ Tooltime::Application.routes.draw do
   resources :transcription_factors, :only => [:index, :show]
 
   # db summary: genes
-  resources :genes, :only => [:index]
+  resources :genes, :only => [:index, :show]
 
   # db summary: regulatory elements
   resources :regulatory_elements, :only => [:index]

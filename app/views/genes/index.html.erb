@@ -4,11 +4,11 @@
     <div class="span12">
       <table class="table table-bordered table-striped">
         <thead>
-          <tr>
-            <th><%= sortable_col :species%></th>
-            <th><%= sortable_col :name%></th>
-            <th><%= sortable_col :abbrev%></th>
-            <th><%= sortable_col :chromosome %></th>
+          <tr>            
+            <th><%= sortable_col :species, 'Species'%></th>
+            <th><%= sortable_col :name, 'Name'%></th>
+            <th><%= sortable_col :abbrev, 'Abbrev.'%></th>
+            <th><%= sortable_col :chromosome, 'Chromosome' %></th>
             <th><%= sortable_col :beg_site, 'Begin Site' %></th>
             <th><%= sortable_col :end_site, 'End Site' %></th>          
             <th># Of Comparisons</th>
@@ -17,15 +17,19 @@
         </thead>
         <tbody>
           <% @genes.each do |gene| %>
-            <tr>
+            <tr>              
               <td><%= gene.species %></td>
-              <td><%= gene.name %></td>
+              <td><%= link_to(gene.name, gene) %></td>
               <td><%= gene.abbrev %></td>
               <td><%= gene.chromosome %></td>
               <td><%= gene.beg_site %></td>
-              <td><%= gene.end_site %></td>
-              <td>"Some query"</td>
-              <td>"Some query"</td>
+              <td><%= gene.end_site %></td>              
+              <td><strong>All:</strong> <%= gene.num_comparisons_all %></br>
+                <strong>Up:</strong> <%= gene.num_comparisons_up %></br>
+                <strong>Down:</strong><%= gene.num_comparisons_down %></td>
+              <td><strong>All:</strong> <%= gene.num_experiments_all %></br>
+                <strong>Up:</strong> <%= gene.num_experiments_up %></br>
+                <strong>Down:</strong><%= gene.num_experiments_down %></td>
             </tr>
           <% end %>
         </tbody>
