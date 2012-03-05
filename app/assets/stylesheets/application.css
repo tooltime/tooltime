@@ -41,3 +41,12 @@ body {
 .content .table {
   background: #fff;
 }
+
+.filter {
+  padding-top: 10px;
+  text-align: right;
+}
+
+.content h3 {
+  font-weight: normal;
+}
