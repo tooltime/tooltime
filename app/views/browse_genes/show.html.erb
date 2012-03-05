@@ -66,7 +66,9 @@
       <h2>Regulatory Elements:</h2>
     </div>
     <div class="span6 filter">
-      filter by: <a href="#filter-la-modal" data-toggle="modal"><span class="label label-info">la</span></a>
+      filter by:
+      <a href="#filter-location-modal" data-toggle="modal"><span class="label label-info">location</span></a>
+      <a href="#filter-la-modal" data-toggle="modal"><span class="label label-info">la</span></a>
       <a href="#filter-laslash-modal" data-toggle="modal"><span class="label label-info">la/</span></a>
       <a href="#filter-lq-modal" data-toggle="modal"><span class="label label-info">lq</span></a>
       <a href="#filter-ld-modal" data-toggle="modal"><span class="label label-info">ld</span></a>
@@ -242,6 +244,35 @@
     </form>
   </div>
   <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  </div>
+</div>
+<div id="filter-location-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Filter <small>by Location</small></h3>
+  </div>
+  <div class="modal-body">
+    <form action="" class="form-vertical" method="get">
+      <fieldset>
+        <h4>Range for "beginning"</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            low:&nbsp; <input class="span1" type="text" id="beg_low" name="beg_low" /><br />
+            high: <input class="span1" type="text" id="beg_high" name="beg_high" />
+          </div>
+        </div>
+        <h4>Sense</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            <%= select_tag :sns, options_for_select(@senses, @senses.first), {:class => 'span1'} %>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary">filter</a>
     <a href="#" class="btn" data-dismiss="modal">Cancel</a>
   </div>
 </div>

@@ -21,3 +21,6 @@ $ ->
     $('#filter-ld-modal .one-value').submit()
   $('#filter-ld-modal .range .btn-primary').click ->
     $('#filter-ld-modal .range').submit()
+  
+  $('#filter-location-modal .btn-primary').click ->
+    $('#filter-location-modal form').submit()
