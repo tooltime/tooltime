@@ -31,17 +31,16 @@
           <h3><%= @experiment.identified %> <small>total</small></h3>
           <h3><%= @experiment.identified(:up) %> <small>up regulated</small></h3>
           <h3><%= @experiment.identified(:down) %> <small>down regulated</small></h3>
+        </div>
       </div>
     </div>
   </div>
   <div class="row banner">
-    <div class="span12">
+    <div class="span6">
       <h2>Genes:</h2>
     </div>
-  </div>
-  <div class="row banner">
-    <div class="span12">
-      <a href="#filter-experiments-modal" data-toggle="modal">filter</a>
+    <div class="span6 filter">
+      filter by: <a href="#filter-experiments-modal" data-toggle="modal"><span class="label label-info">regulation</span></a>
     </div>
   </div>
   <div class="row">
