@@ -62,8 +62,16 @@
   <div class="row">&nbsp;</div>
   <div class="row">&nbsp;</div>
   <div class="row banner">
-    <div class="span12">
+    <div class="span6">
       <h2>Regulatory Elements:</h2>
+    </div>
+    <div class="span6 filter">
+      filter by:
+      <a href="#filter-location-modal" data-toggle="modal"><span class="label label-info">location</span></a>
+      <a href="#filter-la-modal" data-toggle="modal"><span class="label label-info">la</span></a>
+      <a href="#filter-laslash-modal" data-toggle="modal"><span class="label label-info">la/</span></a>
+      <a href="#filter-lq-modal" data-toggle="modal"><span class="label label-info">lq</span></a>
+      <a href="#filter-ld-modal" data-toggle="modal"><span class="label label-info">ld</span></a>
     </div>
   </div>
   <div class="row">
@@ -97,5 +105,174 @@
         </tbody>
       </table>
     </div>
+  </div>
+</div>
+<div id="filter-la-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Filter <small>by LA</small></h3>
+  </div>
+  <div class="modal-body">
+    <form action="" class="one-value form-vertical" method="get">
+      <fieldset>
+        <h4>Value</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            <input class="span1" type="text" id="la" name="la" />
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">filter</a>
+      </fieldset>
+    </form>
+    <hr />
+    <form action="" class="range form-vertical" method="get">
+      <fieldset>
+        <h4>Range</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            low:&nbsp; <input class="span1" type="text" id="la_low" name="la_low" /><br />
+            high: <input class="span1" type="text" id="la_high" name="la_high" />
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">filter</a>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  </div>
+</div>
+<div id="filter-laslash-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Filter <small>by LA/</small></h3>
+  </div>
+  <div class="modal-body">
+    <form action="" class="one-value form-vertical" method="get">
+      <fieldset>
+        <h4>Value</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            <input class="span1" type="text" id="la" name="la_slash" />
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">filter</a>
+      </fieldset>
+    </form>
+    <hr />
+    <form action="" class="range form-vertical" method="get">
+      <fieldset>
+        <h4>Range</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            low:&nbsp; <input class="span1" type="text" id="la_slash_low" name="la_slash_low" /><br />
+            high: <input class="span1" type="text" id="la_slash_high" name="la_slash_high" />
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">filter</a>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  </div>
+</div>
+<div id="filter-lq-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Filter <small>by LQ</small></h3>
+  </div>
+  <div class="modal-body">
+    <form action="" class="one-value form-vertical" method="get">
+      <fieldset>
+        <h4>Value</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            <input class="span1" type="text" id="lq" name="lq" />
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">filter</a>
+      </fieldset>
+    </form>
+    <hr />
+    <form action="" class="range form-vertical" method="get">
+      <fieldset>
+        <h4>Range</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            low:&nbsp; <input class="span1" type="text" id="lq_low" name="lq_low" /><br />
+            high: <input class="span1" type="text" id="lq_high" name="lq_high" />
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">filter</a>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  </div>
+</div>
+<div id="filter-ld-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Filter <small>by LD</small></h3>
+  </div>
+  <div class="modal-body">
+    <form action="" class="one-value form-vertical" method="get">
+      <fieldset>
+        <h4>Value</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            <input class="span1" type="text" id="ld" name="ld" />
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">filter</a>
+      </fieldset>
+    </form>
+    <hr />
+    <form action="" class="range form-vertical" method="get">
+      <fieldset>
+        <h4>Range</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            low:&nbsp; <input class="span1" type="text" id="ld_low" name="ld_low" /><br />
+            high: <input class="span1" type="text" id="ld_high" name="ld_high" />
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">filter</a>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  </div>
+</div>
+<div id="filter-location-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Filter <small>by Location</small></h3>
+  </div>
+  <div class="modal-body">
+    <form action="" class="form-vertical" method="get">
+      <fieldset>
+        <h4>Range for "beginning"</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            low:&nbsp; <input class="span1" type="text" id="beg_low" name="beg_low" /><br />
+            high: <input class="span1" type="text" id="beg_high" name="beg_high" />
+          </div>
+        </div>
+        <h4>Sense</h4><br />
+        <div class="control-group">
+          <div class="controls">
+            <%= select_tag :sns, options_for_select(@senses, @senses.first), {:class => 'span1'} %>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary">filter</a>
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
   </div>
 </div>
