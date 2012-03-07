@@ -2,6 +2,9 @@ Tooltime::Application.routes.draw do
   # misc routes
   get 'main/index'
   
+  # analytics
+  get "gene_search/index"
+  
   # data uploading
   post  'data/upload'
   match "/data/status/:job_id" => "data#status"
