@@ -48,6 +48,7 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
+            <th width="2%"></th>
             <th><%= sortable_col :name %></th>
             <th><%= sortable_col :chromosome %></th>
             <th><%= sortable_col :beg_site, 'begin site' %></th>
@@ -59,6 +60,7 @@
         <tbody>
           <% @genes.each do |gene| %>
             <tr>
+              <td width="2%"><i class="icon-edit"></i></td>
               <td><%= link_to(gene.name, comparison_experiment_gene_path(@comparison, @experiment, gene)) %></td>
               <td><%= gene.chromosome %></td>
               <td><%= gene.beg_site %></td>

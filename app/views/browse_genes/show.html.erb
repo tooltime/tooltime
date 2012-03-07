@@ -79,6 +79,7 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
+            <th width="2%"></th>
             <th><%= sortable_col :sequence %></th>
             <th><%= sortable_col :beg, 'beginning' %></th>
             <th><%= sortable_col :len, 'length' %></th>
@@ -92,6 +93,7 @@
         <tbody>
           <% @reg_elements.each do |re| %>
             <tr>
+              <td><i class="icon-edit"></i></td>
               <td><%= link_to re.sequence, comparison_experiment_gene_regulatory_element_path(@comparison, @experiment, @gene, re) %></td>
               <td><%= re.beg %></td>
               <td><%= re.len %></td>

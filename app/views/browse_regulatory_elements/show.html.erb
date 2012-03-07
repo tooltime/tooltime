@@ -94,12 +94,14 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
+            <th width="2%"></th>
             <th><%= sortable_col :name %></th>
           </tr>
         </thead>
         <tbody>
           <% @re_element.transcription_factors.each do |f| %>
             <tr>
+              <td width="2%"><i class="icon-edit"></i></td>
               <td><%= f.name %></td>
             </tr>
           <% end %>
