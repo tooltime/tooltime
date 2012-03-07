@@ -33,7 +33,7 @@
         <tbody>
           <% @experiments.each do |exp| %>
             <tr>
-              <td width="2%"><a href="<%= edit_comparison_experiment_path(@comparison, exp) %>"><i class="icon-edit"></i></a></td>
+              <td width="2%"><a class="edit" href="<%= edit_comparison_experiment_path(@comparison, exp) %>"><i class="icon-edit"></i></a></td>
               <td><%= link_to(exp.label, comparison_experiment_path(@comparison, exp)) %></td>
               <td><%= exp.tess %></td>
               <td><%= exp.identified %></td>
