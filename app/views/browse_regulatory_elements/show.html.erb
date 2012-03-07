@@ -101,8 +101,8 @@
         <tbody>
           <% @re_element.transcription_factors.each do |f| %>
             <tr>
-              <td width="2%"><i class="icon-edit"></i></td>
-              <td><%= f.name %></td>
+              <td width="2%"><a href="<%= edit_transcription_factor_path f %>"><i class="icon-edit"></i></a></td>
+              <td><%= link_to f.name, f %></td>
             </tr>
           <% end %>
         </tbody>

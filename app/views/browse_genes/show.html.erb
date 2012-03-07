@@ -93,7 +93,7 @@
         <tbody>
           <% @reg_elements.each do |re| %>
             <tr>
-              <td><i class="icon-edit"></i></td>
+              <td><a href="<%= edit_regulatory_element_path re %>"><i class="icon-edit"></i></a></td>
               <td><%= link_to re.sequence, comparison_experiment_gene_regulatory_element_path(@comparison, @experiment, @gene, re) %></td>
               <td><%= re.beg %></td>
               <td><%= re.len %></td>

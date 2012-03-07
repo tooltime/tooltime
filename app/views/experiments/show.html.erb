@@ -60,7 +60,7 @@
         <tbody>
           <% @genes.each do |gene| %>
             <tr>
-              <td width="2%"><i class="icon-edit"></i></td>
+              <td width="2%"><a href="<%= edit_gene_path gene %>"><i class="icon-edit"></i></td>
               <td><%= link_to(gene.name, comparison_experiment_gene_path(@comparison, @experiment, gene)) %></td>
               <td><%= gene.chromosome %></td>
               <td><%= gene.beg_site %></td>
