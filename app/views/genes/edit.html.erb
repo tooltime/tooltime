@@ -1,0 +1,164 @@
+<div class="content edit-gene">
+  <div class="row banner">
+    <div class="span12">
+      <h1>Edit Gene</h1>
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <%= form_for @gene do |f| %>
+        <p>
+          <%= f.label :abbrev %>
+          <%= f.text_field :abbrev %>
+        </p>
+        <p>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </p>
+        <p>
+          <%= f.label :species %>
+          <%= f.text_field :species %>
+        </p>
+        <p>
+          <%= f.label :chromosome %>
+          <%= f.text_field :chromosome %>
+        </p>
+        <p>
+          <%= f.label :beg_site %>
+          <%= f.text_field :beg_site %>
+        </p>
+        <p>
+          <%= f.label :regulation %>
+          <%= f.text_field :regulation %>
+        </p>
+        <p>
+          <%= f.label :length %>
+          <%= f.text_field :length %>
+        </p>
+        <p>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </p>
+        <p>
+          <%= f.label :transfac_strs %>
+          <%= f.text_field :transfac_strs %>
+        </p>
+        <p>
+          <%= f.label :imd_matrices %>
+          <%= f.text_field :imd_matrices %>
+        </p>
+        <p>
+          <%= f.label :cbil_matrices %>
+          <%= f.text_field :cbil_matrices %>
+        </p>
+        <p>
+          <%= f.label :jaspar_matrices %>
+          <%= f.text_field :jaspar_matrices %>
+        </p>
+        <p>
+          <%= f.label :myweight_matrices %>
+          <%= f.text_field :myweight_matrices %>
+        </p>
+        <p>
+          <%= f.label :selected_two %>
+          <%= f.text_field :selected_two %>
+        </p>
+        <p>
+          <%= f.label :combine %>
+          <%= f.text_field :combine %>
+        </p>
+        <p>
+          <%= f.label :factor_attribute_one %>
+          <%= f.text_field :factor_attribute_one %>
+        </p>
+        <p>
+          <%= f.label :matches %>
+          <%= f.text_field :matches %>
+        </p>
+        <p>
+          <%= f.label :core_positions %>
+          <%= f.text_field :core_positions %>
+        </p>
+        <p>
+          <%= f.label :tmm %>
+          <%= f.text_field :tmm %>
+        </p>
+        <p>
+          <%= f.label :ts_a %>
+          <%= f.text_field :ts_a %>
+        </p>
+        <p>
+          <%= f.label :tw %>
+          <%= f.text_field :tw %>
+        </p>
+        <p>
+          <%= f.label :ta %>
+          <%= f.text_field :ta %>
+        </p>
+        <p>
+          <%= f.label :group_selection_one %>
+          <%= f.text_field :group_selection_one %>
+        </p>
+        <p>
+          <%= f.label :td %>
+          <%= f.text_field :td %>
+        </p>
+        <p>
+          <%= f.label :tc %>
+          <%= f.text_field :tc %>
+        </p>
+        <p>
+          <%= f.label :tm %>
+          <%= f.text_field :tm %>
+        </p>
+        <p>
+          <%= f.label :lg_likelihood_deficit %>
+          <%= f.text_field :lg_likelihood_deficit %>
+        </p>
+        <p>
+          <%= f.label :sig_threshold %>
+          <%= f.text_field :sig_threshold %>
+        </p>
+        <p>
+          <%= f.label :selected_three %>
+          <%= f.text_field :selected_three %>
+        </p>
+        <p>
+          <%= f.label :pseudo_counts %>
+          <%= f.text_field :pseudo_counts %>
+        </p>
+        <p>
+          <%= f.label :group_selection_two %>
+          <%= f.text_field :group_selection_two %>
+        </p>
+        <p>
+          <%= f.label :a_tcontent %>
+          <%= f.text_field :a_tcontent %>
+        </p>
+        <p>
+          <%= f.label :a_distribution %>
+          <%= f.text_field :a_distribution %>
+        </p>
+        <p>
+          <%= f.label :c_distribution %>
+          <%= f.text_field :c_distribution %>
+        </p>
+        <p>
+          <%= f.label :t_distribution %>
+          <%= f.text_field :t_distribution %>
+        </p>
+        <p>
+          <%= f.label :g_distribution %>
+          <%= f.text_field :g_distribution %>
+        </p>
+        <p>
+          <%= f.label :ambiguous %>
+          <%= f.text_field :ambiguous %>
+        </p>
+        <p>
+          <%= f.button :class => 'btn btn-primary' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
