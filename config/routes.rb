@@ -11,7 +11,7 @@ Tooltime::Application.routes.draw do
   
   # browse comparisons
   resources :comparisons do
-    resources :experiments, :only => [:show] do
+    resources :experiments do
       resources :genes, :only => [:show], :controller => 'browse_genes' do
         resources :regulatory_elements, :only => [:show], :controller => 'browse_regulatory_elements'
       end
@@ -19,13 +19,13 @@ Tooltime::Application.routes.draw do
   end
   
   # db summary: transcription factors
-  resources :transcription_factors, :only => [:index, :show]
+  resources :transcription_factors
 
   # db summary: genes
-  resources :genes, :only => [:index, :show]
+  resources :genes
 
   # db summary: regulatory elements
-  resources :regulatory_elements, :only => [:index]
+  resources :regulatory_elements
   
   # main page
   root :to => 'main#index'
