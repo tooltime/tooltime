@@ -35,7 +35,15 @@
           </ul>
         </li>
         <li class="browse-comparisons"><%= link_to '<i class="icon-th-list icon-white"></i>Browse Comparisons'.html_safe, comparisons_path %></li>
-        <li class="analytics"><a href=""><i class="icon-list-alt icon-white"></i>Analytics</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#analytics-menu">
+            <i class="icon-list-alt icon-white"></i>Analytics
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Gene Search', gene_search_index_path %></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -64,6 +72,12 @@
   </div>
 </div>
 <div class="container">
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <a class="close" data-dismiss="alert">×</a>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <%= yield %>
 </div>
 </body>
