@@ -10,7 +10,7 @@ Tooltime::Application.routes.draw do
   match "/data/status/:job_id" => "data#status"
   
   # browse comparisons
-  resources :comparisons, :only => [:index, :show] do
+  resources :comparisons do
     resources :experiments, :only => [:show] do
       resources :genes, :only => [:show], :controller => 'browse_genes' do
         resources :regulatory_elements, :only => [:show], :controller => 'browse_regulatory_elements'

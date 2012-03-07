@@ -1,0 +1,24 @@
+<div class="content edit-comparison">
+  <div class="row banner">
+    <div class="span12">
+      <h1>Edit Comparison</h1>
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <%= form_for @comparison do |f| %>
+        <p>
+          <%= f.label :state %>
+          <%= f.text_field :state %>
+        </p>
+        <p>
+          <%= f.label :species %>
+          <%= f.text_field :species %>
+        </p>
+        <p>
+          <%= f.button :class => 'btn btn-primary' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
