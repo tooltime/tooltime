@@ -9,6 +9,17 @@ class ComparisonsController < ApplicationController
     @experiments = sorted_experiments(@comparison.experiments)
   end
   
+  def edit
+    @comparison = Comparison.find(params[:id])
+  end
+  
+  def update
+    comparison = Comparison.find(params[:id])
+    comparison.update_attributes(params[:comparison])
+    flash[:notice] = 'Comparison updated successfully.'
+    redirect_to comparison
+  end
+  
   private
   
   def filtered_comparisons

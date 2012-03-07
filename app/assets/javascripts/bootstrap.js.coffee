@@ -4,9 +4,12 @@ jQuery ->
   $(".carousel").carousel()
   $(".collapse").collapse()
   $(".dropdown-toggle").dropdown()
-  #$(".modal").modal()
-  $("a[rel]").popover()
   $(".navbar").scrollspy()
   $(".tab").tab "show"
   $(".tooltip").tooltip()
   $(".typeahead").typeahead() 
+  
+  $('a.edit').tooltip(title: 'edit')
+  $('.arrows').each ->
+    $(@).find('a:first').tooltip(title: 'sort ascending')
+    $(@).find('a:last').tooltip(title: 'sort descending')
