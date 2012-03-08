@@ -36,4 +36,15 @@ class TranscriptionFactorsController < ApplicationController
       else
     end
   end
+
+  def edit
+    @factor = TranscriptionFactor.find(params[:id])
+  end
+
+  def update
+    factor = TranscriptionFactor.find(params[:id])
+    factor.update_attributes(params[:transcription_factor])
+    flash[:notice] = 'Transcription Factor updated successfully.'
+    redirect_to factor
+  end
 end
