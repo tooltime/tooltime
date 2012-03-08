@@ -11,7 +11,6 @@
           <tr>
             <th><%= sortable_col :state, "comparison" %></th>
             <th><%= sortable_col :label, "experiment" %></th>
-            <th><%= sortable_col :tess,  "TESS" %></th>
             <th><%= sortable_col :name,  "gene" %></th>
             <th><%= sortable_col :beg,   "regulatory_element_location" %></th>
             <th><%= sortable_col :model %></th>
@@ -22,7 +21,6 @@
             <tr>
               <td><%= reg.gene.experiment.comparison.state %></td>
               <td><%= reg.gene.experiment.label %></td>
-              <td><%= reg.gene.experiment.tess %></td>
               <td><%= reg.gene.name %></td>
               <td><%= reg.beg %></td>
               <td><%= reg.model %></td>

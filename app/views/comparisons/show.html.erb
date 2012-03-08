@@ -24,7 +24,6 @@
           <tr>
             <th width="2%"></th>
             <th><%= sortable_col :label %></th>
-            <th><%= sortable_col :tess %></th>
             <th><%= sortable_col :genes_identified_total, 'genes identified' %> <span class="label label-info">total</span></th>
             <th><%= sortable_col :genes_identified_up, 'genes identified' %> <span class="label label-info">up regulated</span></th>
             <th><%= sortable_col :genes_identified_down, 'genes identified' %> <span class="label label-info">down regulated</span></th>
@@ -35,7 +34,6 @@
             <tr>
               <td width="2%"><a class="edit" href="<%= edit_comparison_experiment_path(@comparison, exp) %>"><i class="icon-edit"></i></a></td>
               <td><%= link_to(exp.label, comparison_experiment_path(@comparison, exp)) %></td>
-              <td><%= exp.tess %></td>
               <td><%= exp.identified %></td>
               <td><%= exp.identified(:up) %></td>
               <td><%= exp.identified(:down) %></td>

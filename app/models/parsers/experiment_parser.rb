@@ -2,13 +2,11 @@ module Parsers
   class ExperimentParser < CSVParser
     def map(key)
       map = {
-        :label => 1,
-        :tess  => 0
+        :label => 1
       }
       map[key]
     end
     
-    # ignoring TESS for now...should fix later
     def import
       e = Experiment.new(:label => get_val(:label))
       if e.save
