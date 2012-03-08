@@ -1,6 +1,7 @@
 module Parsers
   class GeneParser < CSVParser
     Map = {
+      :tess                  => 0,
       :abbrev                => 5,
       :name                  => 4,
       :species               => 3,
