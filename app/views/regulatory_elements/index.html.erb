@@ -5,13 +5,13 @@
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th><%= sortable_col :beg %></th>
-          <th><%= sortable_col :len %></th>
-          <th><%= sortable_col :sns %></th>
-          <th><%= sortable_col :model %></th>
           <th><%= sortable_col :sequence %></th>
+          <th><%= sortable_col :beg, 'begin site' %></th>
+          <th><%= sortable_col :len, 'length'  %></th>
+          <th><%= sortable_col :sns, 'direction' %></th>
+          <th><%= sortable_col :model %></th>
           <th><%= sortable_col :la %></th>
-          <th><%= sortable_col :la_slash %></th>
+          <th><%= sortable_col :la_slash, 'la /' %></th>
           <th><%= sortable_col :lq %></th>
           <th><%= sortable_col :ld %></th>
           <th><%= sortable_col :ppv %></th>
@@ -20,11 +20,11 @@
       <tbody>
         <% @regulatory_elements.each do |regulatory_element| %>
           <tr>
+            <td><%= link_to(regulatory_element.sequence, regulatory_element) %></td>
             <td><%= regulatory_element.beg %></td>
             <td><%= regulatory_element.len %></td>
             <td><%= regulatory_element.sns %></td>
             <td><%= regulatory_element.model %></td>
-            <td><%= regulatory_element.sequence %></td>
             <td><%= regulatory_element.la %></td>
             <td><%= regulatory_element.la_slash %></td>
             <td><%= regulatory_element.lq %></td>

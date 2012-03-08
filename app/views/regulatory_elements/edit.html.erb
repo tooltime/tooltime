@@ -1,0 +1,52 @@
+<div class="content edit-comparison">
+  <div class="row banner">
+    <div class="span12">
+      <h1>Edit Regulatory Element</h1>
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <%= form_for @regulatory_element do |f| %>
+        <p>
+          <%= f.label :sequence %>
+          <%= f.text_field :sequence %>
+        </p>
+        <p>
+          <%= f.label :beginning %>
+          <%= f.text_field :beg %>
+        </p>
+         <p>
+          <%= f.label :length %>
+          <%= f.text_field :len %>
+        </p>
+         <p>
+          <%= f.label :sense %>
+          <%= f.text_field :sns %>
+        </p>
+        <p>
+          <%= f.label :la %>
+          <%= f.text_field :la %>
+        </p>
+        <p>
+          <%= f.label :la_slash %>
+          <%= f.text_field :la_slash %>
+        </p>
+        <p>
+          <%= f.label :lq %>
+          <%= f.text_field :lq %>
+        </p>
+        <p>
+          <%= f.label :ld %>
+          <%= f.text_field :ld %>
+        </p>
+        <p>
+          <%= f.label :ppv %>
+          <%= f.text_field :ppv %>
+        </p>
+        <p>
+          <%= f.button :class => 'btn btn-primary' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
