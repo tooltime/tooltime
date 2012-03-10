@@ -6,22 +6,23 @@
   </div>
   <div class="row banner">    
     <div class="span12">
-      <div align="right">
-        <button type="submit" class="btn">Search</button>
-      </div>
       <form action="" class="form-horizontal" method="get">
         <fieldset>
-          <h4>Transcription Factors of Interest</h4></br>
+          <div align="right">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+          <h4>Transcription Factors of Interest</h4><br />
           <div class="control-group">
             <label class="control-label" for="tfactors">Transcription Factors</label>
-            <div class="controls">
-              <input id="tfactors" class="typeahead" name="tfactors" type="text" data-source="<%= @tfnames %>" data-provide="typeahead" />
+            <div class="controls tfactors">
+              <input id="tfactors" class="typeahead" name="tfactors[]" type="text" data-source="<%= @tfnames %>" data-provide="typeahead" />
+              <a id="add-factor-btn" href="#">add another</a>
             </div>
           </div>
         </fieldset>
 
         <fieldset>
-          <h4>L-Value Constraints</h4></br>
+          <h4>L-Value Constraints</h4><br />
           <div class="control-group">
             <label class="control-label" for="lavalue">Minimum La Value</label>
             <div class="controls">
@@ -46,7 +47,7 @@
         </fieldset>
 
         <fieldset>
-          <h4>Scope of Search</h4></br>
+          <h4>Scope of Search</h4><br />
           <div class="control-group">            
             <div class="controls">              
               <select>
