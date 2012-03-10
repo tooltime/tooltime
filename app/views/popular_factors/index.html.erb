@@ -48,7 +48,14 @@
     <h3>Select Comparisons</h3>
   </div>
   <div class="modal-body">
-    
+    <form>
+      <fieldset>
+        <% @comparisons.each do |comparison| %>
+          <input type="checkbox" value="<%= comparison.state %>" />
+          <%= comparison.state %> (<%= comparison.species %>)<br />
+        <% end %>
+      </fieldset>
+    </form>
   </div>
   <div class="modal-footer">
     <a href="#" class="btn btn-primary">Ok</a>
@@ -61,7 +68,14 @@
     <h3>Select Experiments</h3>
   </div>
   <div class="modal-body">
-    
+    <form>
+      <fieldset>
+        <% @experiments.each do |exp| %>
+          <input type="checkbox" value="<%= exp.label %>" />
+          <%= exp.label %><br />
+        <% end %>
+      </fieldset>
+    </form>
   </div>
   <div class="modal-footer">
     <a href="#" class="btn btn-primary">Ok</a>
