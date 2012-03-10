@@ -7,6 +7,7 @@
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
+          <th></th>
           <th><%= sortable_col :sequence %></th>
           <th><%= sortable_col :beg, 'begin site' %></th>
           <th><%= sortable_col :len, 'length'  %></th>
@@ -22,6 +23,7 @@
       <tbody>
         <% @regulatory_elements.each do |regulatory_element| %>
           <tr>
+            <td><a class="edit" href="<%= edit_regulatory_element_path regulatory_element %>"><i class="icon-edit"></i></a></td>
             <td><%= link_to(regulatory_element.sequence, regulatory_element) %></td>
             <td><%= regulatory_element.beg %></td>
             <td><%= regulatory_element.len %></td>
