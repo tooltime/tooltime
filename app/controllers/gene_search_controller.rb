@@ -7,7 +7,8 @@ class GeneSearchController < ApplicationController
   end
   
   def search
-    search = GeneSearch.new(params[:tfactors])
+    constraints = params.reject {|k,v| k == 'tfactors' || k == 'controller' || k == 'action'}
+    search = GeneSearch.new(params[:tfactors], constraints)
     search.run
     @genes = search.results
   end
