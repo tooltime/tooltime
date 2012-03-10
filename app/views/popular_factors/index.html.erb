@@ -16,25 +16,25 @@
             <label class="control-label" for="species">Species</label>
             <div class="controls species">
               <input id="species" class="typeahead" name="species[]" type="text" data-source="<%= @species %>" data-provide="typeahead" />
-              <a id="add-factor-btn" href="#">add another</a>
+              <a id="add-species-btn" href="#">add another</a>
             </div>
           </div>
         </fieldset>
         <fieldset>
           <h4>Comparisons of Interest</h4><br />
           <div class="control-group">
-            <label class="control-label" for="comparisons">Comparisons</label>
+            <label class="control-label" for="select-comparisons-btn">Comparisons</label>
             <div class="controls comparisons">
-              <a id="comparisons" href="#select-comparisons" class="btn btn-primary disabled" data-toggle="modal">Select Comparisons</a>
+              <a id="select-comparisons-btn" href="#select-comparisons" class="btn btn-primary" data-toggle="modal">Select Comparisons</a>
             </div>
           </div>
         </fieldset>
         <fieldset>
           <h4>Experiments of Interest</h4><br />
           <div class="control-group">
-            <label class="control-label" for="experiments">Experiments</label>
+            <label class="control-label" for="select-experiments-btn">Experiments</label>
             <div class="controls experiments">
-              <a id="experiments" href="#select-experiments" class="btn btn-primary disabled" data-toggle="modal">Select Experiments</a>
+              <a id="select-experiments-btn" href="#select-experiments" class="btn btn-primary" data-toggle="modal">Select Experiments</a>
             </div>
           </div>
         </fieldset>
@@ -51,8 +51,10 @@
     <form>
       <fieldset>
         <% @comparisons.each do |comparison| %>
-          <input type="checkbox" value="<%= comparison.state %>" />
-          <%= comparison.state %> (<%= comparison.species %>)<br />
+          <div class="checkbox-item">
+            <input type="checkbox" value="<%= comparison.species %>" />
+            <%= comparison.state %> (<%= comparison.species %>)<br />
+          </div>
         <% end %>
       </fieldset>
     </form>
