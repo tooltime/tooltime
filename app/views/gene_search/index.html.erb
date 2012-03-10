@@ -6,62 +6,75 @@
   </div>
   <div class="row banner">    
     <div class="span12">
-      <div align="right">
-        <button type="submit" class="btn">Search</button>
-      </div>
-      <form action="" class="form-horizontal" method="get">
+      <form action="<%= gene_search_search_path %>" class="form-horizontal" method="get">
         <fieldset>
-          <h4>Transcription Factors of Interest</h4></br>
+          <div align="right">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+          <h4>Transcription Factors of Interest</h4><br />
           <div class="control-group">
             <label class="control-label" for="tfactors">Transcription Factors</label>
-            <div class="controls">
-              <input id="tfactors" class="typeahead" name="tfactors" type="text" data-source="<%= @tfnames %>" data-provide="typeahead" />
+            <div class="controls tfactors">
+              <input id="tfactors" class="typeahead" name="tfactors[]" type="text" data-source="<%= @tfnames %>" data-provide="typeahead" />
+              <a id="add-factor-btn" href="#">add another</a>
             </div>
           </div>
         </fieldset>
 
         <fieldset>
-          <h4>L-Value Constraints</h4></br>
+          <h4>L-Value Constraints</h4><br />
           <div class="control-group">
             <label class="control-label" for="lavalue">Minimum La Value</label>
             <div class="controls">
-              <input id="lavalue" class="typeahead" name="lavalue" type="text"/>
+              <input id="lavalue" class="typeahead" name="la" type="text"/>
             </div>
             
             <label class="control-label" for="laslashvalue">Minimum La/ Value</label>
             <div class="controls">
-                <input id="laslashvalue" class="typeahead" name="laslashvalue" type="text"/>
+                <input id="laslashvalue" class="typeahead" name="la_slash" type="text"/>
             </div>            
           
             <label class="control-label" for="lqvalue">Minimum Lq Value</label>
             <div class="controls">
-              <input id="lqvalue" class="typeahead" name="lqvalue" type="text"/>
+              <input id="lqvalue" class="typeahead" name="lq" type="text"/>
             </div>  
             
             <label class="control-label" for="ldvalue">Maximum Ld Value</label>
             <div class="controls">
-              <input id="ldvalue" class="typeahead" name="ldvalue" type="text"/>
+              <input id="ldvalue" class="typeahead" name="ld" type="text"/>
             </div>            
           </div>
         </fieldset>
 
         <fieldset>
-          <h4>Scope of Search</h4></br>
+          <h4>Scope of Search</h4><br />
           <div class="control-group">            
-            <div class="controls">              
+            <div class="controls scope">              
               <select>
                 <option>Entire Database</option>
                 <option>Single Specie</option>
                 <option>Single Experiment</option>
                 <option>Single Comparison</option>
               </select>
-              <select>
-                <option>?</option>                
-              </select>
             </div>            
           </div>
         </fieldset>
-      </form>    
+      </form>
+      <%= form_tag(:style => 'display: none;') do %>
+        <% @all_species.each do |species| %>
+          <%= hidden_field_tag "all-species", species, {:class => 'species'} %>
+        <% end %>
+      <% end %>
+      <%= form_tag(:style => 'display: none;') do %>
+        <% @all_experiments.each do |exp| %>
+          <%= hidden_field_tag "all-experiments", exp, {:class => 'experiments'} %>
+        <% end %>
+      <% end %>
+      <%= form_tag(:style => 'display: none;') do %>
+        <% @all_comparisons.each do |comparison| %>
+          <%= hidden_field_tag "all-comparisons", comparison, {:class => 'comparisons'} %>
+        <% end %>
+      <% end %>
   </div>
 </div>
 </div>
