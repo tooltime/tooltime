@@ -1,12 +1,29 @@
-<div class="content browse-comparisons">
+<div class="content gene-search-results">
   <div class="row banner">
     <div class="span6">
-      <h1>Search Results</h1>
+      <h1>Search Results <small>genes</small></h1>
     </div>
   </div>
   <div class="row">
     <div class="span12">
-      
+      <table class="table table-bordered table-striped">
+        <thead>
+          <th>name</th>
+          <th>regulation</th>
+          <th>experiment</th>
+          <th>comparison</th>
+        </thead>
+        <tbody>
+          <% @genes.each do |gene| %>
+            <tr>
+              <td><%= gene.name %></td>
+              <td><%= gene.regulation %></td>
+              <td><%= gene.experiment.label %></td>
+              <td><%= gene.experiment.comparison.state %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

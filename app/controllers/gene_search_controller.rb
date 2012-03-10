@@ -9,5 +9,6 @@ class GeneSearchController < ApplicationController
   def search
     search = GeneSearch.new(params[:tfactors])
     search.run
+    @genes = search.results
   end
 end

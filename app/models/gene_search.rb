@@ -1,3 +1,5 @@
+require 'set'
+
 class GeneSearch
   def initialize(tfactors)
     @tfactors = tfactors.map {|f| TranscriptionFactor.where(name: f).first}
@@ -11,6 +13,20 @@ class GeneSearch
     #Rails.logger.debug "[DEBUGGING] #{@genes.size} genes found"
   end
   
+  def results
+    results = @genes[@tfactors.first.name]
+    @genes.each do |name, genes|
+       results = results & genes
+    end
+    results.to_a
+  end
+  
+  def self.test
+    search = GeneSearch.new(['AF-1', 'BSAP'])
+    search.run
+    search.results
+  end
+  
   private
   
   def get_regulatory_elements
@@ -19,7 +35,7 @@ class GeneSearch
   
   def get_genes
     @reg_elements.each do |name, elements|
-      @genes[name] = @reg_elements[name].map(&:gene).uniq
+      @genes[name] = @reg_elements[name].map(&:gene).to_set
     end
   end
 end
