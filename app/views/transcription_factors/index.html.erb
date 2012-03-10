@@ -7,8 +7,8 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
+            <th width="2%"></th>
             <th><%= sortable_col :name %></th>
-            <th><%= sortable_col :fac, "FAC" %></th>
             <th><%= sortable_col :modelCount, "# of models" %></th>
             <th><%= sortable_col :geneCount, "# of genes" %></th>
             <th><%= sortable_col :totalCount, "total occurences" %></th>
@@ -17,8 +17,8 @@
         <tbody>
           <% @factors.each do |factor| %>
             <tr>
+              <td width="2%"><a class="edit" href="<%= edit_transcription_factor_path factor %>"><i class="icon-edit"></i></a></td>
               <td><%= link_to(factor.name, factor) %></td>
-              <td></td>
               <td><%= factor.count_models %></td>
               <td><%= factor.count_genes %></td>
               <td><%= factor.count_total %></td>
