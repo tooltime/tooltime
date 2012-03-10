@@ -5,4 +5,9 @@ class GeneSearchController < ApplicationController
     @all_experiments = Experiment.select(:label).uniq.map(&:label)
     @all_comparisons = Comparison.select(:state).uniq.map(&:state)
   end
+  
+  def search
+    search = GeneSearch.new(params[:tfactors])
+    search.run
+  end
 end
