@@ -18,7 +18,22 @@ class GeneSearch
     @genes.each do |name, genes|
        results = results & genes
     end
-    results.to_a
+    results = results.to_a
+    
+    if empty_constraints?
+      results
+    else
+      if !@constraints[:species].nil? && !@constraints[:species].empty?
+        results = results.select {|g| g.species == @constraints[:species]}
+      end
+      if !@constraints[:experiments].nil? && !@constraints[:experiments].empty?
+        results = results.select {|g| g.experiment.label == @constraints[:experiments]}
+      end
+      if !@constraints[:comparisons].nil? && !@constraints[:comparisons].empty?
+        results = results.select {|g| g.experiment.comparison.state == @constraints[:comparisons]}
+      end
+      results
+    end
   end
   
   def self.test
