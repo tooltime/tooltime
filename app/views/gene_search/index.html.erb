@@ -65,6 +65,16 @@
           <%= hidden_field_tag "all-species", species, {:class => 'species'} %>
         <% end %>
       <% end %>
+      <%= form_tag(:style => 'display: none;') do %>
+        <% @all_experiments.each do |exp| %>
+          <%= hidden_field_tag "all-experiments", exp, {:class => 'experiments'} %>
+        <% end %>
+      <% end %>
+      <%= form_tag(:style => 'display: none;') do %>
+        <% @all_comparisons.each do |comparison| %>
+          <%= hidden_field_tag "all-comparisons", comparison, {:class => 'comparisons'} %>
+        <% end %>
+      <% end %>
   </div>
 </div>
 </div>

@@ -14,13 +14,24 @@ $ ->
       species = []
       $('input.species').each ->
         species.push $(@).val()
-      html = "&nbsp;&nbsp;<select>"
-      html += "<option>#{specie}</option>" for specie in species
-      html += "</select>"
-      $(@).after html
+      addDropdown @, species
     else if selected == 'Single Experiment'
-      # TODO
+      experiments = []
+      $('input.experiments').each ->
+        experiments.push $(@).val()
+      addDropdown @, experiments
     else if selected == 'Single Comparison'
-      # TODO
+      comparisons = []
+      $('input.comparisons').each ->
+        comparisons.push $(@).val()
+      addDropdown @, comparisons
     else
-      # TODO
+      $(@).next().remove() if $(@).next().length > 0
+    
+  addDropdown = (element, things) ->
+    html = "&nbsp;&nbsp;<select>"
+    html += "<option>#{thing}</option>" for thing in things
+    html += "</select>"
+    $(element).next().remove() if $(element).next().length > 0
+    $(element).after html
+      
