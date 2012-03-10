@@ -1,2 +1,26 @@
-<h1>PopularFactors#index</h1>
-<p>Find me in app/views/popular_factors/index.html.erb</p>
+<div class="content popular-factors">
+  <div class="row banner">
+    <div class="span12">
+      <h1>Popular Transcription Factors</h1>      
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <form action="<%= popular_factors_search_path %>" class="form-horizontal" method="get">
+        <fieldset>
+          <div align="right">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+          <h4>Species of Interest</h4><br />
+          <div class="control-group">
+            <label class="control-label" for="species">Species</label>
+            <div class="controls species">
+              <input id="species" class="typeahead" name="species[]" type="text" data-source="<%= @species %>" data-provide="typeahead" />
+              <a id="add-factor-btn" href="#">add another</a>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
