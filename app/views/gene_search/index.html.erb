@@ -49,20 +49,22 @@
         <fieldset>
           <h4>Scope of Search</h4><br />
           <div class="control-group">            
-            <div class="controls">              
+            <div class="controls scope">              
               <select>
                 <option>Entire Database</option>
                 <option>Single Specie</option>
                 <option>Single Experiment</option>
                 <option>Single Comparison</option>
               </select>
-              <select>
-                <option>?</option>                
-              </select>
             </div>            
           </div>
         </fieldset>
-      </form>    
+      </form>
+      <%= form_tag(:style => 'display: none;') do %>
+        <% @all_species.each do |species| %>
+          <%= hidden_field_tag "all-species", species, {:class => 'species'} %>
+        <% end %>
+      <% end %>
   </div>
 </div>
 </div>
