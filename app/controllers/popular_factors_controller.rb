@@ -6,5 +6,9 @@ class PopularFactorsController < ApplicationController
   end
 
   def search
+    constraints = params.reject {|k,v| k == 'species' || k == 'experiments'}
+    search = FactorPopularity.new(params[:experiments], constraints)
+    search.run
+    @factors = search.results
   end
 end

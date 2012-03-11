@@ -1,2 +1,25 @@
-<h1>PopularFactors#search</h1>
-<p>Find me in app/views/popular_factors/search.html.erb</p>
+<div class="content popular-factors-results">
+  <div class="row banner">
+    <div class="span12"><h1>Popular Factors Results</h1></div>
+  </div>
+  <div class="row banner">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <th>name</th>
+          <th># of total occurrences</th>
+          <th># of genes</th>
+        </thead>
+        <tbody>
+          <% @factors.each do |name,info| %>
+            <tr>
+              <td><%= name %></td>
+              <td><%= info[:total] %></td>
+              <td><%= info[:genes].size %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

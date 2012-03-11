@@ -29,6 +29,10 @@ class FactorPopularity
     factors
   end
   
+  def perform
+    self.run
+  end
+  
   def self.test
     test = self.new([Experiment.first.label], {:la => '50', :la_slash => '', :lq => '', :ld => ''})
     test.run
