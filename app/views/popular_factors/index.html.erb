@@ -52,6 +52,7 @@
       <fieldset>
         <% @comparisons.each do |comparison| %>
           <div class="checkbox-item">
+            <input type="hidden" value="<%= comparison.experiments.map(&:id) %>" />
             <input type="checkbox" value="<%= comparison.species %>" />
             <%= comparison.state %> (<%= comparison.species %>)<br />
           </div>
@@ -60,7 +61,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn btn-primary">Ok</a>
+    <a href="#" class="btn btn-primary" data-dismiss="modal">Ok</a>
     <a href="#" class="btn" data-dismiss="modal">Cancel</a>
   </div>
 </div>
@@ -73,14 +74,17 @@
     <form>
       <fieldset>
         <% @experiments.each do |exp| %>
-          <input type="checkbox" value="<%= exp.label %>" />
-          <%= exp.label %><br />
+          <div class="checkbox-item">
+            <input type="hidden" value="<%= exp.id %>" />
+            <input type="checkbox" value="<%= exp.label %>" />
+            <%= exp.label %><br />
+          </div>
         <% end %>
       </fieldset>
     </form>
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn btn-primary">Ok</a>
+    <a href="#" class="btn btn-primary" data-dismiss="modal">Ok</a>
     <a href="#" class="btn" data-dismiss="modal">Cancel</a>
   </div>
 </div>

@@ -9,7 +9,13 @@ $ ->
         $(@).parent().remove()
       
   $('#select-experiments-btn').click ->
-    # TODO
+    selectedExperiments = []
+    $('#select-comparisons .checkbox-item').each ->
+      if $(@).find('input[type="checkbox"]').first().is(':checked')
+        selectedExperiments.push expId for expId in eval($(@).find('input[type="hidden"]').first().val())
+    $('#select-experiments input[type="checkbox"]').each ->
+      if $.inArray(parseInt($(@).prev().val()), selectedExperiments) == -1
+        $(@).parent().remove()
   
   $('#add-species-btn').click ->
     sources = $(@).prev().attr 'data-source'
