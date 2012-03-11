@@ -8,4 +8,8 @@ class RegulatoryElement < ActiveRecord::Base
   def self.all_senses
     self.select(:sns).uniq.map(&:sns)
   end
+  
+  def similar
+    RegulatoryElement.where('id != ?', self.id).where(:gene_id => self.gene_id, :beg => self.beg, :sns => self.sns, :len => (self.len - 1)..(self.len + 1))
+  end
 end
