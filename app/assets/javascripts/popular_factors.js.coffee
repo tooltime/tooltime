@@ -25,7 +25,7 @@ $ ->
   $('#select-experiments .btn-primary').click ->
     $('.experiments').append('<p></p><p></p>')
     $('#select-experiments input[type="checkbox"]').each ->
-      $('.experiments p').last().append "#{$(@).parent().text()}<br />"
+      $('.experiments p').last().append "#{$(@).parent().text()}<input type=\"hidden\" name=\"experiments[]\" value=\"#{$.trim $(@).parent().text()}\" /><br />"
   
   $('#add-species-btn').click ->
     sources = $(@).prev().attr 'data-source'
