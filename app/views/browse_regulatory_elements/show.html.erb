@@ -105,4 +105,41 @@
       </table>
     </div>
   </div>
+  <div class="row banner">
+    <div class="span12">
+      <h2>Similar Regulatory Elements:</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>sequence</th>
+            <th>beg</th>
+            <th>len</th>
+            <th>sns</th>
+            <th>la</th>
+            <th>la/</th>
+            <th>ld</th>
+            <th>lq</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @re_element.similar.each do |r| %>
+            <tr>
+              <td><%= link_to r.sequence, r %></td>
+              <td><%= r.beg %></td>
+              <td><%= r.len %></td>
+              <td><%= r.sns %></td>
+              <td><%= r.la %></td>
+              <td><%= r.la_slash %></td>
+              <td><%= r.ld %></td>
+              <td><%= r.lq %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
