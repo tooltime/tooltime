@@ -73,8 +73,8 @@ $ ->
     params.la_slash = $('#search-params input[name="la_slash"]').val()
     params.lq = $('#search-params input[name="lq"]').val()
     params.ld = $('#search-params input[name="ld"]').val()
-    params.sort_by = 'total'
-    params.order = 'desc'
+    params.sort_by = $('#search-params input[name="sort_by"]').val()
+    params.order = $('#search-params input[name="order"]').val()
     $('.processing-results-progress').spin {lines: 12, length: 16, width: 6, radius: 18, trail: 60, speed: 0.8}
     $.ajax
       url: "/popular_factors/results?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}&sort_by=#{params.sort_by}&order=#{params.order}",
@@ -84,11 +84,40 @@ $ ->
         console.log errorThrown
       success: (data) ->
         console.log data
+        window.factors = data.factors
         $('.processing-results-progress').data('spinner').stop()
         $('.processing-results-status').text 'Your data is ready.'
         $('.processing-results-alert .alert').remove()
         $('.processing-results-alert').append '<div class="alert alert-success"><strong>Your data\'s ready!</strong> Thanks for waiting so patiently.</div>'
-        $('.popular-factors-results .results-table').append '<table class="table table-bordered table-striped"><thead><th>name</th><th># of total occurrences</th><th># of genes</th></thead><tbody></tbody></table>'
+        table = """
+        <table class="table table-bordered table-striped">
+          <thead>
+            <th>
+              name
+              <span class="arrows" style="float: right;">
+                <a href="/popular_factors/search?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}&sort_by=name&order=asc"><i class="icon-chevron-up"></i></a>
+                <a href="/popular_factors/search?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}&sort_by=name&order=desc"><i class="icon-chevron-down"></i></a>
+              </span>
+            </th>
+            <th>
+              # of total occurrences
+              <span class="arrows" style="float: right;">
+                <a href="/popular_factors/search?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}&sort_by=total&order=asc"><i class="icon-chevron-up"></i></a>
+                <a href="/popular_factors/search?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}&sort_by=total&order=desc"><i class="icon-chevron-down"></i></a>
+              </span>
+            </th>
+            <th>
+              # of genes
+              <span class="arrows" style="float: right;">
+                <a href="/popular_factors/search?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}&sort_by=genes&order=asc"><i class="icon-chevron-up"></i></a>
+                <a href="/popular_factors/search?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}&sort_by=genes&order=desc"><i class="icon-chevron-down"></i></a>
+              </span>
+            </th>
+          </thead>
+          <tbody></tbody>
+        </table>
+        """
+        $('.popular-factors-results .results-table').append table
         processFactor(factor, i) for factor, i in data.factors
   
   startSearch() if $('#search-params').length > 0

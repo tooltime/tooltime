@@ -10,7 +10,7 @@ class PopularFactorsController < ApplicationController
   end
   
   def results
-    constraints = params.reject {|k,v| k == 'species' || k == 'experiments' || k == 'sort_by'}
+    constraints = params.reject {|k,v| k == 'species' || k == 'experiments' || k == 'sort_by' || k == 'order'}
     search = FactorPopularity.new(params[:experiments], constraints)
     search.run
     factors = sorted_results(search.results)
@@ -37,9 +37,9 @@ class PopularFactorsController < ApplicationController
       end
     elsif sort_by == 'name'
       if order == 'asc'
-        factors.to_a.sort {|a,b| a.first <=> b.first}
+        factors.to_a.sort {|a,b| a.first.downcase <=> b.first.downcase}
       elsif order == 'desc'
-        factors.to_a.sort {|a,b| b.first <=> a.first}
+        factors.to_a.sort {|a,b| b.first.downcase <=> a.first.downcase}
       end
     end
   end
