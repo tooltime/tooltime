@@ -5,6 +5,17 @@ class ExperimentsController < ApplicationController
     @genes      = sorted_collection(filtered_genes(@experiment))
   end
   
+  def edit
+    @experiment = Experiment.find(params[:id])
+  end
+  
+  def update
+    experiment = Experiment.find(params[:id])
+    experiment.update_attributes(params[:experiment])
+    flash[:notice] = 'Experiment updated successfully.'
+    redirect_to comparisons_path
+  end
+  
   private
   
   def filtered_genes(experiment)
