@@ -47,21 +47,22 @@ $ ->
       <div class="modal-body">
         <table class="table table-bordered table-striped">
           <thead>
-            <th>
-              <td>gene name</td>
-            </th>
+            <tr>
+              <th>gene</th>
+              <th>experiment</th>
+              <th>comparison</th>
+            </tr>
           </thead>
           <tbody></tbody>
         </table>
       </div>
       <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
       </div>
     </div>
     """
     $('.popular-factors-results').append popup
-    
-    $("#factor-#{i} table tbody").append("<tr><td>#{gene.name}</td></tr>") for gene in factor[1].genes
+    $("#factor-#{i} table tbody").append("<tr><td>#{gene.name}</td><td>#{gene.experiment.label}</td><td>#{gene.comparison.state}</td></tr>") for gene in factor[1].genes
     
     $('.popular-factors-results .results-table table tbody').append("<tr><td><a href=\"#factor-#{i}\" data-toggle=\"modal\">#{factor[0]}</a></td><td>#{factor[1].total}</td><td>#{factor[1].genes.length}</td></tr>")
   

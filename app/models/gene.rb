@@ -36,7 +36,13 @@ class Gene < ActiveRecord::Base
   def num_comparisons_down
     Gene.where(:name => self.name, :regulation => 'down').map {|g| g.experiment.comparison}.uniq.size    
   end
-
-
+  
+  def comparison
+    self.experiment.comparison
+  end
+  
+  def as_json(options={})
+    super(:methods => [:experiment, :comparison])
+  end
 end
 
