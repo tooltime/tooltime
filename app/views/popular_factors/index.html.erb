@@ -1,0 +1,114 @@
+<div class="content popular-factors">
+  <div class="row banner">
+    <div class="span12">
+      <h1>Popular Transcription Factors</h1>      
+    </div>
+  </div>
+  <div class="row banner">
+    <div class="span10">
+      <form action="<%= popular_factors_search_path %>" class="form-horizontal" method="get">
+        <fieldset>
+          <div align="right">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+          <h4>Species of Interest</h4><br />
+          <div class="control-group">
+            <label class="control-label" for="species">Species</label>
+            <div class="controls species">
+              <input id="species" class="typeahead" name="species[]" type="text" data-source="<%= @species %>" data-provide="typeahead" />
+              <a id="add-species-btn" href="#">add another</a>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <h4>Comparisons of Interest</h4><br />
+          <div class="control-group">
+            <label class="control-label" for="select-comparisons-btn">Comparisons</label>
+            <div class="controls comparisons">
+              <a id="select-comparisons-btn" href="#select-comparisons" class="btn btn-primary" data-toggle="modal">Select Comparisons</a>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <h4>Experiments of Interest</h4><br />
+          <div class="control-group">
+            <label class="control-label" for="select-experiments-btn">Experiments</label>
+            <div class="controls experiments">
+              <a id="select-experiments-btn" href="#select-experiments" class="btn btn-primary" data-toggle="modal">Select Experiments</a>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <h4>L-Value Constraints</h4><br />
+          <div class="control-group">
+            <label class="control-label" for="lavalue">Minimum La Value</label>
+            <div class="controls">
+              <input id="lavalue" class="typeahead" name="la" type="text"/>
+            </div>
+            
+            <label class="control-label" for="laslashvalue">Minimum La/ Value</label>
+            <div class="controls">
+                <input id="laslashvalue" class="typeahead" name="la_slash" type="text"/>
+            </div>            
+          
+            <label class="control-label" for="lqvalue">Minimum Lq Value</label>
+            <div class="controls">
+              <input id="lqvalue" class="typeahead" name="lq" type="text"/>
+            </div>  
+            
+            <label class="control-label" for="ldvalue">Maximum Ld Value</label>
+            <div class="controls">
+              <input id="ldvalue" class="typeahead" name="ld" type="text"/>
+            </div>            
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="select-comparisons" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Select Comparisons</h3>
+  </div>
+  <div class="modal-body">
+    <form>
+      <fieldset>
+        <% @comparisons.each do |comparison| %>
+          <div class="checkbox-item">
+            <input type="hidden" value="<%= comparison.experiments.map(&:id) %>" />
+            <input type="checkbox" value="<%= comparison.species %>" />
+            <%= comparison.state %> (<%= comparison.species %>)<br />
+          </div>
+        <% end %>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary" data-dismiss="modal">Ok</a>
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  </div>
+</div>
+<div id="select-experiments" class="modal hide fade">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Select Experiments</h3>
+  </div>
+  <div class="modal-body">
+    <form>
+      <fieldset>
+        <% @experiments.each do |exp| %>
+          <div class="checkbox-item">
+            <input type="hidden" value="<%= exp.id %>" />
+            <input type="checkbox" value="<%= exp.label %>" />
+            <%= exp.label %><br />
+          </div>
+        <% end %>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary" data-dismiss="modal">Ok</a>
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  </div>
+</div>
