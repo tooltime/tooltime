@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="row banner">
-    <div class="span12">
+    <div class="span10">
       <form action="<%= popular_factors_search_path %>" class="form-horizontal" method="get">
         <fieldset>
           <div align="right">
@@ -36,6 +36,30 @@
             <div class="controls experiments">
               <a id="select-experiments-btn" href="#select-experiments" class="btn btn-primary" data-toggle="modal">Select Experiments</a>
             </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <h4>L-Value Constraints</h4><br />
+          <div class="control-group">
+            <label class="control-label" for="lavalue">Minimum La Value</label>
+            <div class="controls">
+              <input id="lavalue" class="typeahead" name="la" type="text"/>
+            </div>
+            
+            <label class="control-label" for="laslashvalue">Minimum La/ Value</label>
+            <div class="controls">
+                <input id="laslashvalue" class="typeahead" name="la_slash" type="text"/>
+            </div>            
+          
+            <label class="control-label" for="lqvalue">Minimum Lq Value</label>
+            <div class="controls">
+              <input id="lqvalue" class="typeahead" name="lq" type="text"/>
+            </div>  
+            
+            <label class="control-label" for="ldvalue">Maximum Ld Value</label>
+            <div class="controls">
+              <input id="ldvalue" class="typeahead" name="ld" type="text"/>
+            </div>            
           </div>
         </fieldset>
       </form>
