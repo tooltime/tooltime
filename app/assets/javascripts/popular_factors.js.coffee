@@ -44,19 +44,22 @@ $ ->
     params.la_slash = $('#search-params input[name="la_slash"]').val()
     params.lq = $('#search-params input[name="lq"]').val()
     params.ld = $('#search-params input[name="ld"]').val()
+    params.sort_by = 'total'
+    params.order = 'desc'
     $('.processing-results-progress').spin {lines: 12, length: 16, width: 6, radius: 18, trail: 60, speed: 0.8}
     $.ajax
-      url: "/popular_factors/results?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}",
+      url: "/popular_factors/results?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}&sort_by=#{params.sort_by}&order=#{params.order}",
       dataType: 'json',
       timeout: 3600000,
       error: (jqXHR, textStatus, errorThrown) ->
         console.log errorThrown
       success: (data) ->
+        console.log data
         $('.processing-results-progress').data('spinner').stop()
         $('.processing-results-status').text 'Your data is ready.'
         $('.processing-results-alert .alert').remove()
         $('.processing-results-alert').append '<div class="alert alert-success"><strong>Your data\'s ready!</strong> Thanks for waiting so patiently.</div>'
         $('.popular-factors-results .results-table').append '<table class="table table-bordered table-striped"><thead><th>name</th><th># of total occurrences</th><th># of genes</th></thead><tbody></tbody></table>'
-        $('.popular-factors-results .results-table table tbody').append("<tr><td>#{name}</td><td>#{info.total}</td><td>#{info.genes.length}</td></tr>") for name, info of data.factors
+        $('.popular-factors-results .results-table table tbody').append("<tr><td>#{factor[0]}</td><td>#{factor[1].total}</td><td>#{factor[1].genes.length}</td></tr>") for factor in data.factors
   
   startSearch() if $('#search-params').length > 0
