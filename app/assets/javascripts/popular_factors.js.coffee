@@ -37,6 +37,23 @@ $ ->
     $('#select-comparisons-btn').removeClass 'disabled'
     $('#select-experiments-btn').removeClass 'disabled'
   
+  processFactor = (factor, i) ->
+    popup = """
+    <div id="factor-#{i}" class="modal hide fade">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>#{factor[0]}</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+      </div>
+    </div>
+    """
+    $('.popular-factors-results').append popup
+    $('.popular-factors-results .results-table table tbody').append("<tr><td><a href=\"#factor-#{i}\" data-toggle=\"modal\">#{factor[0]}</a></td><td>#{factor[1].total}</td><td>#{factor[1].genes.length}</td></tr>")
+  
   startSearch = ->
     params = {}
     params.experiments = eval($('#search-params input[name="experiments"]').val())
@@ -60,6 +77,6 @@ $ ->
         $('.processing-results-alert .alert').remove()
         $('.processing-results-alert').append '<div class="alert alert-success"><strong>Your data\'s ready!</strong> Thanks for waiting so patiently.</div>'
         $('.popular-factors-results .results-table').append '<table class="table table-bordered table-striped"><thead><th>name</th><th># of total occurrences</th><th># of genes</th></thead><tbody></tbody></table>'
-        $('.popular-factors-results .results-table table tbody').append("<tr><td>#{factor[0]}</td><td>#{factor[1].total}</td><td>#{factor[1].genes.length}</td></tr>") for factor in data.factors
+        processFactor(factor, i) for factor, i in data.factors
   
   startSearch() if $('#search-params').length > 0
