@@ -1,0 +1,2 @@
+module PopularFactorsHelper
+end
