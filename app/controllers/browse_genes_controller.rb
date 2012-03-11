@@ -4,7 +4,7 @@ class BrowseGenesController < ApplicationController
     @experiment   = Experiment.find(params[:experiment_id])
     @gene         = Gene.find(params[:id])
     @reg_elements = sorted_collection(filtered_elements(@gene.regulatory_elements))
-    @senses       = RegulatoryElement.all_senses
+    @senses       = RegulatoryElement.all_senses << 'any'
   end
   
   private
@@ -31,8 +31,13 @@ class BrowseGenesController < ApplicationController
       elements.where("ld >= :ld_low AND ld <= :ld_high",
                      {:ld_low => params[:ld_low], :ld_high => params[:ld_high]})
     elsif params[:beg_low] && params[:beg_high] && params[:sns]
-      elements.where("beg >= :beg_low AND beg <= :beg_high AND sns = :sns", 
-                     {:beg_low => params[:beg_low], :beg_high => params[:beg_high], :sns => params[:sns]})
+      if params[:sns] == 'any'
+        elements.where("beg >= :beg_low AND beg <= :beg_high", 
+                       {:beg_low => params[:beg_low], :beg_high => params[:beg_high]})
+      else
+        elements.where("beg >= :beg_low AND beg <= :beg_high AND sns = :sns", 
+                       {:beg_low => params[:beg_low], :beg_high => params[:beg_high], :sns => params[:sns]})
+      end
     else
       elements
     end
