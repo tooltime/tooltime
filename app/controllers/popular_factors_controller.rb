@@ -6,9 +6,14 @@ class PopularFactorsController < ApplicationController
   end
 
   def search
+    @params = params
+  end
+  
+  def results
     constraints = params.reject {|k,v| k == 'species' || k == 'experiments'}
     search = FactorPopularity.new(params[:experiments], constraints)
     search.run
-    @factors = search.results
+    factors = search.results
+    render :json => {factors: factors}
   end
 end

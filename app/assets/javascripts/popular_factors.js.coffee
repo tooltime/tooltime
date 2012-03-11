@@ -33,6 +33,32 @@ $ ->
     $(@).prev().attr 'data-source', sources
     false
   
+    if $('.processing-results-progress').length > 0
+      # starts the progress indicator
+      $('.processing-results-progress').spin {lines: 12, length: 16, width: 6, radius: 18, trail: 60, speed: 0.8}
+  
   speciesEntered = ->
     $('#select-comparisons-btn').removeClass 'disabled'
     $('#select-experiments-btn').removeClass 'disabled'
+  
+  startSearch = ->
+    params = {}
+    params.experiments = eval($('#search-params input[name="experiments"]').val())
+    params.la = $('#search-params input[name="la"]').val()
+    params.la_slash = $('#search-params input[name="la_slash"]').val()
+    params.lq = $('#search-params input[name="lq"]').val()
+    params.ld = $('#search-params input[name="ld"]').val()
+    console.log params
+    $.ajax
+      url: "/popular_factors/results?experiments[]=#{params.experiments}&la=#{params.la}&la_slash=#{params.la_slash}&lq=#{params.lq}&ld=#{params.ld}",
+      dataType: 'json',
+      timeout: 3600000,
+      success: (data) ->
+        console.log data.factors
+        #$('.processing-results-progress').data('spinner').stop()
+        #$('.processing-results-status').text 'Your data is ready.'
+        #$('.processing-results-alert .alert').remove()
+        #$('.processing-results-alert').append '<div class="alert alert-success"><strong>Your data\'s ready!</strong> Thanks for waiting so patiently.</div>'
+        #$('.popular-factors-results table').append("<tr><td>#{name}</td><td>#{info.total}</td><td>#{info.genes.length}</td></tr>") for name, info in data.factors
+  
+  startSearch() if $('#search-params').length > 0

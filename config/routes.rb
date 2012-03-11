@@ -7,6 +7,7 @@ Tooltime::Application.routes.draw do
   get 'gene_search/search'
   get "popular_factors/index"
   get "popular_factors/search"
+  get "popular_factors/results"
   
   # data uploading
   post  'data/upload'

@@ -3,6 +3,17 @@
     <div class="span12"><h1>Popular Factors Results</h1></div>
   </div>
   <div class="row banner">
+    <div class="span6">
+      <h4 class="processing-results-status">Your data is now being processed.</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6 processing-results-alert">
+      <div class="alert alert-info">
+        <strong>Please be patient,</strong> processing the data may take several minutes.
+      </div>
+    </div>
+  <div class="row banner">
     <div class="span12">
       <table class="table table-bordered table-striped">
         <thead>
@@ -11,15 +22,16 @@
           <th># of genes</th>
         </thead>
         <tbody>
-          <% @factors.each do |name,info| %>
-            <tr>
-              <td><%= name %></td>
-              <td><%= info[:total] %></td>
-              <td><%= info[:genes].size %></td>
-            </tr>
-          <% end %>
         </tbody>
       </table>
     </div>
   </div>
+  <div class="processing-results-progress"></div>
+  <form id="search-params" style="display: none;">
+    <input name="experiments" type="hidden" value="<%= @params[:experiments] %>" />
+    <input name="la" type="hidden" value="<%= @params[:la] %>" />
+    <input name="la_slash" type="hidden" value="<%= @params[:la_slash] %>" />
+    <input name="lq" type="hidden" value="<%= @params[:lq] %>" />
+    <input name="ld" type="hidden" value="<%= @params[:ld] %>" />
+  </form>
 </div>
