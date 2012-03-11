@@ -17,6 +17,16 @@ $ ->
       if $.inArray(parseInt($(@).prev().val()), selectedExperiments) == -1
         $(@).parent().remove()
   
+  $('#select-comparisons .btn-primary').click ->
+    $('.comparisons').append('<p></p><p></p>')
+    $('#select-comparisons input[type="checkbox"]').each ->
+      $('.comparisons p').last().append "#{$(@).parent().text()}<br />"
+  
+  $('#select-experiments .btn-primary').click ->
+    $('.experiments').append('<p></p><p></p>')
+    $('#select-experiments input[type="checkbox"]').each ->
+      $('.experiments p').last().append "#{$(@).parent().text()}<br />"
+  
   $('#add-species-btn').click ->
     sources = $(@).prev().attr 'data-source'
     $(@).before '<input name="species[]" type="text" data-provide="typeahead" />'
