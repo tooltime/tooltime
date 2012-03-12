@@ -9,9 +9,9 @@
           <tr>
             <th width="2%"></th>
             <th><%= sortable_col :name %></th>
-            <th><%= sortable_col :modelCount, "# of models" %></th>
-            <th><%= sortable_col :geneCount, "# of genes" %></th>
-            <th><%= sortable_col :totalCount, "total occurences" %></th>
+            <th><%= sortable_col :models_count, "# of models" %></th>
+            <th><%= sortable_col :genes_count, "# of genes" %></th>
+            <th><%= sortable_col :totals_count, "total occurences" %></th>
           </tr>
         </thead>
         <tbody>
@@ -19,13 +19,14 @@
             <tr>
               <td width="2%"><a class="edit" href="<%= edit_transcription_factor_path factor %>"><i class="icon-edit"></i></a></td>
               <td><%= link_to(factor.name, factor) %></td>
-              <td><%= factor.count_models %></td>
-              <td><%= factor.count_genes %></td>
-              <td><%= factor.count_total %></td>
+              <td><%= factor.models_count %></td>
+              <td><%= factor.genes_count %></td>
+              <td><%= factor.totals_count %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <%= will_paginate @factors %>
     </div>
   </div>
 </div>
