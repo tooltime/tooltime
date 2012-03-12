@@ -1,6 +1,6 @@
 class TranscriptionFactorsController < ApplicationController
   def index
-    @factors = sorted_collection(TranscriptionFactor.all)
+    @factors = sorted_collection(TranscriptionFactor.paginate(:page => params[:page], :per_page => 100))
   end
 
   def show
