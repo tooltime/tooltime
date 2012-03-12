@@ -4,6 +4,7 @@ gem 'rails', '3.2.1'
 gem 'thin'
 
 gem 'delayed_job_active_record'
+gem 'will_paginate', '~> 3.0'
 
 group :development do
   gem 'sqlite3'

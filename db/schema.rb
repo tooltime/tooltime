@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308051340) do
+ActiveRecord::Schema.define(:version => 20120312054332) do
 
   create_table "comparisons", :force => true do |t|
     t.string   "state"
@@ -134,8 +134,11 @@ ActiveRecord::Schema.define(:version => 20120308051340) do
 
   create_table "transcription_factors", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "genes_count"
+    t.integer  "totals_count"
+    t.integer  "models_count"
   end
 
 end

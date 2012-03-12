@@ -19,6 +19,9 @@ class Importer
     gene.update_num_factors
     experiment.genes << gene
     comparison.experiments << experiment
+    
+    # cache long queries for tfactors
+    TranscriptionFactor.all.each(&:update_counts)
   end
   
   # for testing only

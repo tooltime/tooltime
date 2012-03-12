@@ -1,6 +1,6 @@
 class RegulatoryElementsController < ApplicationController
    def index
-      @regulatory_elements = sorted_collection(RegulatoryElement.all)
+      @regulatory_elements = sorted_collection(RegulatoryElement.paginate(:page => params[:page], :per_page => 100))
    end
    
   def show 

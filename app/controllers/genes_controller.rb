@@ -1,6 +1,6 @@
 class GenesController < ApplicationController
   def index
-    @genes = sorted_collection(Gene.all)
+    @genes = sorted_collection(Gene.paginate(:page => params[:page], :per_page => 100))
   end
   
   def show
