@@ -1,21 +1,6 @@
 class TranscriptionFactorsController < ApplicationController
   def index
-    @factors = TranscriptionFactor.all
-    sort = params[:sort].to_s
-    dir  = params[:order].to_s
-
-    case sort
-      when "id", "name"
-        @factors = TranscriptionFactor.order("#{sort} #{dir}")
-      when "fac"
-      when "modelCount"
-        @factors = TranscriptionFactor.joins(:regulatory_elements).group("transcription_factors.id").order("count(DISTINCT regulatory_elements.model) #{dir}")
-      when "geneCount"
-        @factors = TranscriptionFactor.joins(:regulatory_elements => :gene).group("transcription_factors.id").order("count(DISTINCT genes.id) #{dir}")
-      when "totalCount"
-        @factors = TranscriptionFactor.joins(:regulatory_elements).group("transcription_factors.id").order("count(regulatory_elements.id) #{dir}")
-      else
-    end
+    @factors = sorted_collection(TranscriptionFactor.all)
   end
 
   def show

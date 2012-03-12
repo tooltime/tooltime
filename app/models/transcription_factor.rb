@@ -17,6 +17,10 @@ class TranscriptionFactor < ActiveRecord::Base
   def count_models()
     self.regulatory_elements.count(:select => "distinct regulatory_elements.model")
   end
+  
+  def update_counts
+    self.update_attributes(genes_count: self.count_genes, totals_count: self.count_total, models_count: self.count_models)
+  end
 
   def num_occurences(gene)
 
