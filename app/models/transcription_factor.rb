@@ -18,4 +18,16 @@ class TranscriptionFactor < ActiveRecord::Base
     self.regulatory_elements.count(:select => "distinct regulatory_elements.model")
   end
 
+  def num_occurences(gene)
+
+      gene_array = TranscriptionFactor.where(:name => self.name).first.regulatory_elements.map(&:gene)
+
+      counter = 0
+      gene_array.each do |g|
+        if g.name == gene.name
+          counter += 1
+        end
+      end
+      counter
+    end
 end

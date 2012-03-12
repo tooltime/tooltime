@@ -92,6 +92,7 @@
           <tr>
             <th width="2%"></th>
             <th><%= sortable_col :name %></th>
+            <th>Occurences in <%= @gene.name %> </th>
           </tr>
         </thead>
         <tbody>
@@ -99,6 +100,7 @@
             <tr>
               <td width="2%"><a class="edit" href="<%= edit_transcription_factor_path f %>" class="edit"><i class="icon-edit"></i></a></td>
               <td><%= link_to f.name, f %></td>
+              <td><%= f.num_occurences @gene %></td>
             </tr>
           <% end %>
         </tbody>
